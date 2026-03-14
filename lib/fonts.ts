@@ -1,5 +1,8 @@
-import { GeistSans } from "geist/font/sans"
-import { GeistMono } from "geist/font/mono"
+import { Inter } from "next/font/google"
 
-export const fontSans = GeistSans
-export const fontMono = GeistMono
+export const fontSans = Inter({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  weight: ["400", "500", "600", "700", "800"],
+  display: "swap",
+})
