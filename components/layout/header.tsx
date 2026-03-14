@@ -1,29 +1,50 @@
 import Link from "next/link"
 import { Container } from "./container"
-import { NAV_ITEMS } from "@/lib/constants"
 import { Button } from "@/components/ui/button"
+import { Leaf } from "lucide-react"
 
 export function Header() {
   return (
     <header className="bg-background/95 supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50 w-full border-b backdrop-blur">
       <Container>
         <div className="flex h-16 items-center justify-between">
-          <Link href="/" className="flex items-center space-x-2">
-            <span className="text-xl font-bold">Goodwill Advisory Group</span>
+          {/* Logo */}
+          <Link href="/" className="flex items-center gap-2">
+            <div className="bg-primary flex h-8 w-8 items-center justify-center rounded-lg">
+              <Leaf className="h-5 w-5 text-white" />
+            </div>
+            <span className="text-lg font-bold">Goodwill Advisory</span>
           </Link>
 
-          <nav className="hidden md:flex md:gap-6">
-            {NAV_ITEMS.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="text-foreground/60 hover:text-foreground text-sm font-medium transition-colors"
-              >
-                {item.label}
-              </Link>
-            ))}
+          {/* Navigation */}
+          <nav className="hidden md:flex md:gap-8">
+            <Link
+              href="/"
+              className="text-foreground/60 hover:text-foreground text-sm font-medium transition-colors"
+            >
+              Home
+            </Link>
+            <Link
+              href="/#services"
+              className="text-foreground/60 hover:text-foreground text-sm font-medium transition-colors"
+            >
+              Services
+            </Link>
+            <Link
+              href="/#about"
+              className="text-foreground/60 hover:text-foreground text-sm font-medium transition-colors"
+            >
+              About us
+            </Link>
+            <Link
+              href="/#contact"
+              className="text-foreground/60 hover:text-foreground text-sm font-medium transition-colors"
+            >
+              Contact
+            </Link>
           </nav>
 
+          {/* CTA Button */}
           <Button render={<Link href="/#contact" />}>Get Started</Button>
         </div>
       </Container>
