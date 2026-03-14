@@ -1,6 +1,5 @@
 import Link from "next/link"
 import { Container } from "./container"
-import { Button } from "@/components/ui/button"
 import { Leaf } from "lucide-react"
 
 export function Header() {
@@ -17,7 +16,7 @@ export function Header() {
           </Link>
 
           {/* Navigation */}
-          <nav className="hidden md:flex md:gap-8">
+          <nav className="flex gap-8">
             <Link
               href="/"
               className="text-foreground/60 hover:text-foreground text-sm font-medium transition-colors"
@@ -43,9 +42,6 @@ export function Header() {
               Contact
             </Link>
           </nav>
-
-          {/* CTA Button */}
-          <Button render={<Link href="/#contact" />}>Get Started</Button>
         </div>
       </Container>
     </header>
