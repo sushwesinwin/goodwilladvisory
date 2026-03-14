@@ -13,7 +13,7 @@ export function Footer() {
           <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
             {/* Company */}
             <div className="space-y-3">
-              <h3 className="text-lg font-semibold">Goodwill Advisory Group</h3>
+              <h3 className="text-lg">Goodwill Advisory Group</h3>
               <p className="text-muted-foreground text-sm">
                 Professional advisory services for strategic business growth.
               </p>
@@ -21,7 +21,7 @@ export function Footer() {
 
             {/* Quick Links */}
             <div className="space-y-3">
-              <h4 className="text-sm font-semibold">Quick Links</h4>
+              <h4 className="text-sm">Quick Links</h4>
               <ul className="space-y-2 text-sm">
                 <li>
                   <Link
@@ -52,7 +52,7 @@ export function Footer() {
 
             {/* Services */}
             <div className="space-y-3">
-              <h4 className="text-sm font-semibold">Services</h4>
+              <h4 className="text-sm">Services</h4>
               <ul className="text-muted-foreground space-y-2 text-sm">
                 <li>Strategic Planning</li>
                 <li>Business Consulting</li>
@@ -63,7 +63,7 @@ export function Footer() {
 
             {/* Contact */}
             <div className="space-y-3">
-              <h4 className="text-sm font-semibold">Contact</h4>
+              <h4 className="text-sm">Contact</h4>
               <ul className="text-muted-foreground space-y-2 text-sm">
                 <li>goodwilladvisory.hr@gmail.com</li>
                 <li>09255572225 (Viber)</li>

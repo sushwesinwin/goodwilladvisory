@@ -12,7 +12,7 @@ export function Header() {
             <div className="bg-primary flex h-8 w-8 items-center justify-center rounded-lg">
               <Leaf className="h-5 w-5 text-white" />
             </div>
-            <span className="text-lg font-bold">Goodwill Advisory</span>
+            <span className="text-lg">Goodwill Advisory</span>
           </Link>
 
           {/* Navigation */}
