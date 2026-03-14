@@ -5,8 +5,9 @@ export const siteConfig = {
   url: "https://goodwilladvisory.com",
   ogImage: "https://goodwilladvisory.com/og-image.jpg",
   links: {
-    twitter: "https://twitter.com/goodwilladvisory",
-    linkedin: "https://linkedin.com/company/goodwilladvisory",
+    facebook: "https://www.facebook.com/share/1BvNtLTiEu/",
+    linkedin: "https://www.linkedin.com/company/goodwill-advisory-group/",
+    tiktok: "https://tiktok.com/@linkus.recruitment",
   },
   creator: {
     name: "Goodwill Advisory Group",

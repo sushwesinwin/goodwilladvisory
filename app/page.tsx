@@ -4,6 +4,7 @@ import { Container } from "@/components/layout/container"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import Link from "next/link"
+import { siteConfig } from "@/config/site"
 import {
   Briefcase,
   Users,
@@ -11,6 +12,9 @@ import {
   Target,
   BarChart3,
   Shield,
+  Facebook,
+  Linkedin,
+  Music,
 } from "lucide-react"
 
 export default function HomePage() {
@@ -225,18 +229,47 @@ export default function HomePage() {
                 </Button>
               </div>
               <div className="border-border/50 mt-8 border-t pt-8">
-                <p className="text-muted-foreground mb-2 text-sm">
+                <p className="text-muted-foreground mb-2 text-sm font-medium">
                   Contact Information
                 </p>
                 <p className="mb-1 text-sm">
                   <a
                     href="mailto:goodwilladvisory.hr@gmail.com"
-                    className="hover:text-primary"
+                    className="hover:text-primary transition-colors"
                   >
                     goodwilladvisory.hr@gmail.com
                   </a>
                 </p>
                 <p className="text-sm">09255572225 (Viber)</p>
+                <div className="mt-4 flex justify-center gap-4">
+                  <Link
+                    href={siteConfig.links.facebook}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    <Facebook className="h-5 w-5" />
+                    <span className="sr-only">Facebook</span>
+                  </Link>
+                  <Link
+                    href={siteConfig.links.linkedin}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    <Linkedin className="h-5 w-5" />
+                    <span className="sr-only">LinkedIn</span>
+                  </Link>
+                  <Link
+                    href={siteConfig.links.tiktok}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    <Music className="h-5 w-5" />
+                    <span className="sr-only">TikTok</span>
+                  </Link>
+                </div>
               </div>
             </div>
           </Container>
