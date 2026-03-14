@@ -24,9 +24,7 @@ export function Header() {
             ))}
           </nav>
 
-          <Button asChild>
-            <Link href="/#contact">Get Started</Link>
-          </Button>
+          <Button render={<Link href="/#contact" />}>Get Started</Button>
         </div>
       </Container>
     </header>

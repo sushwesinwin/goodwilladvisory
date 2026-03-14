@@ -26,11 +26,15 @@ export default function HomePage() {
                 soon.
               </p>
               <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
-                <Button asChild size="lg">
-                  <Link href="/#contact">Get Started</Link>
+                <Button size="lg" render={<Link href="/#contact" />}>
+                  Get Started
                 </Button>
-                <Button asChild variant="outline" size="lg">
-                  <Link href="/#services">Learn More</Link>
+                <Button
+                  variant="outline"
+                  size="lg"
+                  render={<Link href="/#services" />}
+                >
+                  Learn More
                 </Button>
               </div>
             </div>
