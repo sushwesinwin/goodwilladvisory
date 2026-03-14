@@ -12,6 +12,9 @@ export const siteConfig = {
     name: "Goodwill Advisory Team",
     url: "https://goodwilladvisory.com",
   },
+  theme: {
+    primaryColor: "#4F722E", // Brand olive green
+  },
 }
 
 export type SiteConfig = typeof siteConfig
