@@ -12,10 +12,9 @@ import {
   Target,
   BarChart3,
   Shield,
-  Facebook,
-  Linkedin,
-  Music,
 } from "lucide-react"
+
+import Image from "next/image"
 
 export default function HomePage() {
   return (
@@ -28,7 +27,7 @@ export default function HomePage() {
             <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
               {/* Left: Hero Content */}
               <div className="space-y-6">
-                <h1 className="text-4xl tracking-tight sm:text-5xl lg:text-6xl">
+                <h1 className="text-4xl tracking-tight text-balance sm:text-5xl lg:text-6xl">
                   Build & growth with{" "}
                   <span className="text-primary">strategic advisory</span>
                 </h1>
@@ -43,6 +42,7 @@ export default function HomePage() {
                   <Button
                     variant="outline"
                     size="lg"
+                    className="border-primary text-primary hover:bg-primary/10"
                     render={<Link href="/#services" />}
                   >
                     View Services
@@ -51,14 +51,15 @@ export default function HomePage() {
               </div>
 
               {/* Right: Hero Image */}
-              <div className="bg-muted/30 relative aspect-video overflow-hidden rounded-2xl lg:aspect-square">
-                <div className="text-muted-foreground absolute inset-0 flex items-center justify-center">
-                  {/* Placeholder for hero image */}
-                  <div className="text-center">
-                    <BarChart3 className="mx-auto mb-4 h-24 w-24 opacity-20" />
-                    <p className="text-sm opacity-50">Hero Image</p>
-                  </div>
-                </div>
+              <div className="ring-border/50 relative aspect-video overflow-hidden rounded-2xl shadow-2xl ring-1">
+                <Image
+                  src="/hero.png"
+                  alt="Goodwill Advisory Group team meeting"
+                  fill
+                  className="object-cover"
+                  priority
+                />
+                <div className="from-primary/5 absolute inset-0 bg-linear-to-tr to-transparent" />
               </div>
             </div>
           </Container>
@@ -234,42 +235,16 @@ export default function HomePage() {
                 </p>
                 <p className="mb-1 text-sm">
                   <a
-                    href="mailto:goodwilladvisory.hr@gmail.com"
+                    href={`mailto:${siteConfig.contact.email}`}
                     className="hover:text-primary transition-colors"
                   >
-                    goodwilladvisory.hr@gmail.com
+                    {siteConfig.contact.email}
                   </a>
                 </p>
-                <p className="text-sm">09255572225 (Viber)</p>
-                <div className="mt-4 flex justify-center gap-4">
-                  <Link
-                    href={siteConfig.links.facebook}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="text-muted-foreground hover:text-primary transition-colors"
-                  >
-                    <Facebook className="h-5 w-5" />
-                    <span className="sr-only">Facebook</span>
-                  </Link>
-                  <Link
-                    href={siteConfig.links.linkedin}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="text-muted-foreground hover:text-primary transition-colors"
-                  >
-                    <Linkedin className="h-5 w-5" />
-                    <span className="sr-only">LinkedIn</span>
-                  </Link>
-                  <Link
-                    href={siteConfig.links.tiktok}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="text-muted-foreground hover:text-primary transition-colors"
-                  >
-                    <Music className="h-5 w-5" />
-                    <span className="sr-only">TikTok</span>
-                  </Link>
-                </div>
+                <p className="mb-1 text-sm">{siteConfig.contact.phone}</p>
+                <p className="text-muted-foreground mx-auto max-w-xs text-sm">
+                  {siteConfig.contact.address}
+                </p>
               </div>
             </div>
           </Container>

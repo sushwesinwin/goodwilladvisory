@@ -3,7 +3,7 @@ export const siteConfig = {
   description:
     "Professional advisory services for strategic business growth and transformation.",
   url: "https://goodwilladvisory.com",
-  ogImage: "https://goodwilladvisory.com/og-image.jpg",
+  ogImage: "/hero.png",
   links: {
     facebook: "https://www.facebook.com/share/1BvNtLTiEu/",
     linkedin: "https://www.linkedin.com/company/goodwill-advisory-group/",
@@ -12,6 +12,12 @@ export const siteConfig = {
   creator: {
     name: "Goodwill Advisory Group",
     url: "https://goodwilladvisory.com",
+  },
+  contact: {
+    address:
+      "22 A Street (between 58th & 59th Streets), Nawarat Villa, Aungmyethazan Township, Mandalay, Myanmar",
+    email: "goodwilladvisory.hr@gmail.com",
+    phone: "09255572225 (Viber)",
   },
   theme: {
     primaryColor: "#4F722E", // Brand olive green

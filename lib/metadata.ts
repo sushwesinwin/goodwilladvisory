@@ -13,6 +13,7 @@ export function constructMetadata({
   [key: string]: unknown
 } = {}): Metadata {
   return {
+    metadataBase: new URL(siteConfig.url),
     title: {
       default: title,
       template: `%s | ${siteConfig.name}`,

@@ -98,13 +98,14 @@ export function Footer() {
               <ul className="text-muted-foreground space-y-2 text-sm">
                 <li>
                   <a
-                    href="mailto:goodwilladvisory.hr@gmail.com"
+                    href={`mailto:${siteConfig.contact.email}`}
                     className="hover:text-primary transition-colors"
                   >
-                    goodwilladvisory.hr@gmail.com
+                    {siteConfig.contact.email}
                   </a>
                 </li>
-                <li>09255572225 (Viber)</li>
+                <li>{siteConfig.contact.phone}</li>
+                <li>{siteConfig.contact.address}</li>
               </ul>
             </div>
           </div>
