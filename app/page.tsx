@@ -18,7 +18,7 @@ export default function HomePage() {
               </div>
               <h1 className="mb-6 text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
                 Welcome to{" "}
-                <span className="text-primary">Goodwill Advisory</span>
+                <span className="text-primary">Goodwill Advisory Group</span>
               </h1>
               <p className="text-muted-foreground mb-8 text-lg sm:text-xl">
                 Professional advisory services for strategic business growth and

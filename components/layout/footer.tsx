@@ -13,7 +13,7 @@ export function Footer() {
           <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
             {/* Company */}
             <div className="space-y-3">
-              <h3 className="text-lg font-semibold">Goodwill Advisory</h3>
+              <h3 className="text-lg font-semibold">Goodwill Advisory Group</h3>
               <p className="text-muted-foreground text-sm">
                 Professional advisory services for strategic business growth.
               </p>
@@ -65,8 +65,8 @@ export function Footer() {
             <div className="space-y-3">
               <h4 className="text-sm font-semibold">Contact</h4>
               <ul className="text-muted-foreground space-y-2 text-sm">
-                <li>info@goodwilladvisory.com</li>
-                <li>+1 (555) 123-4567</li>
+                <li>goodwilladvisory.hr@gmail.com</li>
+                <li>09255572225 (Viber)</li>
               </ul>
             </div>
           </div>
