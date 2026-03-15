@@ -104,32 +104,36 @@ export function Footer() {
                     {siteConfig.contact.email}
                   </a>
                 </li>
-                <li>{siteConfig.contact.phone}</li>
-                <li>{siteConfig.contact.address}</li>
+                <li>
+                  <a
+                    href={`tel:${siteConfig.contact.phone.split(" ")[0]}`}
+                    className="hover:text-primary transition-colors"
+                  >
+                    {siteConfig.contact.phone}
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+                      siteConfig.contact.address
+                    )}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-primary transition-colors"
+                  >
+                    {siteConfig.contact.address}
+                  </a>
+                </li>
               </ul>
             </div>
           </div>
 
           <Separator className="my-8" />
 
-          <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
+          <div className="flex flex-col items-center justify-center gap-4">
             <p className="text-muted-foreground text-sm">
               © {currentYear} {siteConfig.name}. All rights reserved.
             </p>
-            <div className="flex gap-4">
-              <Link
-                href="/privacy"
-                className="text-muted-foreground hover:text-primary text-sm transition-colors"
-              >
-                Privacy Policy
-              </Link>
-              <Link
-                href="/terms"
-                className="text-muted-foreground hover:text-primary text-sm transition-colors"
-              >
-                Terms of Service
-              </Link>
-            </div>
           </div>
         </div>
       </Container>

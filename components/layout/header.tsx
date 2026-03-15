@@ -36,7 +36,7 @@ export function Header() {
               href="/#about"
               className="text-foreground/60 hover:text-primary text-sm font-medium transition-colors"
             >
-              About us
+              About
             </Link>
             <Link
               href="/#contact"
