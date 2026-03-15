@@ -15,6 +15,7 @@ import {
 } from "lucide-react"
 
 import Image from "next/image"
+import { ClientCarousel } from "@/components/layout/client-carousel"
 
 export default function HomePage() {
   return (
@@ -102,6 +103,21 @@ export default function HomePage() {
                 </p>
               </div>
             </div>
+          </Container>
+        </section>
+
+        {/* Client Carousel Section */}
+        <section className="py-12 md:py-16">
+          <Container>
+            <div className="mb-8 text-center">
+              <h2 className="mb-2 text-2xl sm:text-3xl">
+                Trusted by Leading Organizations
+              </h2>
+              <p className="text-muted-foreground">
+                Partnering with industry leaders across various sectors
+              </p>
+            </div>
+            <ClientCarousel />
           </Container>
         </section>
 

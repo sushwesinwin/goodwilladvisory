@@ -139,4 +139,19 @@
   .text-balance {
     text-wrap: balance;
   }
+  .animate-infinite-scroll {
+    animation: infinite-scroll 40s linear infinite;
+  }
+  .animate-infinite-scroll-fast {
+    animation: infinite-scroll 25s linear infinite;
+  }
+}
+
+@keyframes infinite-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
