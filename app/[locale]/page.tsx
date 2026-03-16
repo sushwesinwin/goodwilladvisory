@@ -1,9 +1,11 @@
+"use client"
+
 import { Header } from "@/components/layout/header"
 import { Footer } from "@/components/layout/footer"
 import { Container } from "@/components/layout/container"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
-import Link from "next/link"
+import { Link } from "@/lib/navigation"
 import { siteConfig } from "@/config/site"
 import {
   Briefcase,
@@ -13,33 +15,42 @@ import {
   BarChart3,
   Shield,
 } from "lucide-react"
-
 import Image from "next/image"
 import { ClientCarousel } from "@/components/layout/client-carousel"
 import { HeroSlider } from "@/components/layout/hero-slider"
+import { useTranslations } from "next-intl"
 
 export default function HomePage() {
+  const tHero = useTranslations("hero")
+  const tStats = useTranslations("stats")
+  const tAbout = useTranslations("about")
+  const tMission = useTranslations("mission")
+  const tServices = useTranslations("services")
+  const tClients = useTranslations("clients")
+  const tCta = useTranslations("cta")
+
   return (
     <>
       <Header />
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="py-12 md:py-20 lg:py-24">
+        <section className="bg-white py-12 md:py-20 lg:py-24">
           <Container>
             <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
               {/* Left: Hero Content */}
               <div className="space-y-6">
                 <h1 className="text-4xl tracking-tight text-balance sm:text-5xl lg:text-6xl">
-                  Build & growth with{" "}
-                  <span className="text-primary">strategic advisory</span>
+                  {tHero("title")}
+                  <span className="text-primary">
+                    {tHero("titleHighlight")}
+                  </span>
                 </h1>
                 <p className="text-muted-foreground max-w-xl text-lg sm:text-xl">
-                  We help businesses grow through expert HR consulting,
-                  financial advisory, and recruitment solutions.
+                  {tHero("subtitle")}
                 </p>
                 <div className="flex flex-col gap-3 sm:flex-row sm:gap-4">
                   <Button size="lg" render={<Link href="/#services" />}>
-                    EXPLORE MORE
+                    {tHero("cta")}
                   </Button>
                 </div>
               </div>
@@ -53,75 +64,59 @@ export default function HomePage() {
         </section>
 
         {/* Stats Section */}
-        <section className="bg-muted/30 py-12 md:py-16">
+        <section className="bg-gray-50">
           <Container>
             <div className="grid grid-cols-2 gap-8 lg:grid-cols-4">
               <div className="text-center">
                 <div className="text-primary mb-2 text-4xl lg:text-5xl">
-                  95%
+                  {tStats("satisfaction.value")}
                 </div>
                 <p className="text-muted-foreground text-sm">
-                  Customer satisfaction rate, reflecting our dedication
+                  {tStats("satisfaction.label")}
                 </p>
               </div>
               <div className="text-center">
                 <div className="text-primary mb-2 text-4xl lg:text-5xl">
-                  10+
+                  {tStats("experience.value")}
                 </div>
                 <p className="text-muted-foreground text-sm">
-                  Innovation and insight to user's business operation
+                  {tStats("experience.label")}
                 </p>
               </div>
               <div className="text-center">
                 <div className="text-primary mb-2 text-4xl lg:text-5xl">
-                  50+
+                  {tStats("businesses.value")}
                 </div>
                 <p className="text-muted-foreground text-sm">
-                  Platform leveraging secure and efficient financial
+                  {tStats("businesses.label")}
                 </p>
               </div>
               <div className="text-center">
                 <div className="text-primary mb-2 text-4xl lg:text-5xl">
-                  100+
+                  {tStats("placements.value")}
                 </div>
                 <p className="text-muted-foreground text-sm">
-                  Users worldwide, providing them with financial solutions
+                  {tStats("placements.label")}
                 </p>
               </div>
             </div>
-          </Container>
-        </section>
-
-        {/* Client Carousel Section */}
-        <section className="py-12 md:py-16">
-          <Container>
-            <div className="mb-8 text-center">
-              <h2 className="mb-2 text-2xl sm:text-3xl">
-                Trusted by Leading Organizations
-              </h2>
-              <p className="text-muted-foreground">
-                Partnering with industry leaders across various sectors
-              </p>
-            </div>
-            <ClientCarousel />
           </Container>
         </section>
 
         {/* About Us Section */}
-        <section id="about" className="relative overflow-hidden py-20 md:py-28">
-          {/* Background Decoration */}
-          <div className="from-muted/40 via-background to-muted/20 absolute inset-0 bg-linear-to-b" />
+        <section
+          id="about"
+          className="relative overflow-hidden bg-gray-50 py-20 md:py-28"
+        >
           <Container className="relative">
             <div className="mx-auto max-w-6xl">
               {/* Header */}
 
               <h2 className="mb-5 text-4xl tracking-tight text-balance sm:text-5xl lg:text-6xl">
-                About Us
+                {tAbout("title")}
               </h2>
               <p className="text-muted-foreground w-full text-lg sm:text-xl">
-                We provide strategic HR, financial consulting, and recruitment
-                services to help small and medium-sized enterprises (SMEs) grow
-                and succeed.
+                {tAbout("intro")}
               </p>
 
               {/* Main Content Grid */}
@@ -140,7 +135,7 @@ export default function HomePage() {
 
                     <blockquote className="px-4 md:px-6">
                       <p className="text-primary text-center font-serif text-3xl leading-tight italic md:text-4xl lg:text-5xl">
-                        Goodwill for <br /> Good Value
+                        {tAbout("slogan.line1")} <br /> {tAbout("slogan.line2")}
                       </p>
                     </blockquote>
 
@@ -172,18 +167,11 @@ export default function HomePage() {
               {/* Content */}
               <div className="mb-16 space-y-4 text-base leading-relaxed md:text-lg">
                 <p className="text-foreground/90">
-                  Goodwill Advisory Group is founded in 2015 by a group of young
-                  professionals with international exposure to provide
-                  professional Human Resources Consulting, Accounting and
-                  Financial Services to organizations of all sizes.
+                  {tAbout("history.paragraph1")}
                 </p>
 
                 <p className="text-foreground/90">
-                  Goodwill Advisory has been providing vital services to
-                  progressive business owners to create successful strategies
-                  for growth and efficiency in the organizations. Our
-                  experienced team of professionals has expertise in a broad
-                  range of specialties in Asia.
+                  {tAbout("history.paragraph2")}
                 </p>
               </div>
 
@@ -192,24 +180,14 @@ export default function HomePage() {
                 <div className="mb-6 flex items-center gap-3">
                   <div className="bg-primary h-10 w-1 rounded-full" />
                   <h3 className="text-2xl font-bold md:text-3xl">
-                    Our Approach
+                    {tAbout("approach.title")}
                   </h3>
                 </div>
 
                 <div className="text-foreground/90 grid gap-8 text-base leading-relaxed md:grid-cols-2 md:text-lg">
-                  <p>
-                    Goodwill Advisory Services is dedicated to not only hiring
-                    exceptional people but also to thinking outside the box and
-                    reevaluating the status quo to develop truly unique
-                    solutions.
-                  </p>
+                  <p>{tAbout("approach.paragraph1")}</p>
 
-                  <p>
-                    We customize our services to your specific needs and stage
-                    of development. We are very analytical, data-oriented and
-                    business-minded team that provide frequent feedback and
-                    design and develop programs with you, not for you.
-                  </p>
+                  <p>{tAbout("approach.paragraph2")}</p>
                 </div>
               </div>
 
@@ -218,12 +196,7 @@ export default function HomePage() {
                 <div className="bg-primary/5 absolute inset-0 rounded-2xl blur-xl" />
                 <div className="from-primary/10 via-primary/5 to-primary/10 relative rounded-2xl bg-linear-to-r p-8 text-center md:p-12">
                   <p className="text-foreground/90 mx-auto max-w-4xl text-lg leading-relaxed italic md:text-xl">
-                    This ensures the end product is exactly what you need and
-                    will take your business to the next level. We truly care
-                    about our clients' business growth as well as our own. We
-                    serve as your strategic partner, providing you with the
-                    details you need to make informed, effective decisions that
-                    will benefit your business now and into the future.
+                    {tAbout("closing")}
                   </p>
                 </div>
               </div>
@@ -238,14 +211,13 @@ export default function HomePage() {
               <div className="flex items-center justify-center gap-1 text-sm">
                 <span className="text-primary">★★★★★</span>
                 <span className="text-muted-foreground ml-2">
-                  4.9/5 reviews
+                  {tMission("rating")}
                 </span>
               </div>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl">
-                We are passionate about empowering individuals and{" "}
+                {tMission("statement")}
                 <span className="text-muted-foreground">
-                  businesses to take control of their finances and achieve their
-                  financial goals.
+                  {tMission("statementHighlight")}
                 </span>
               </h2>
             </div>
@@ -256,20 +228,18 @@ export default function HomePage() {
         <section id="services" className="bg-muted/30 py-16 md:py-20">
           <Container>
             <div className="mb-12 text-center">
-              <h2 className="mb-4 text-3xl">
-                Empowering and strengthening your business success
-              </h2>
+              <h2 className="mb-4 text-3xl">{tServices("title")}</h2>
             </div>
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               <Card className="space-y-4 p-6">
                 <div className="bg-primary/10 flex h-12 w-12 items-center justify-center rounded-lg">
                   <Briefcase className="text-primary h-6 w-6" />
                 </div>
-                <h3 className="text-xl">Strategic Planning</h3>
+                <h3 className="text-xl">
+                  {tServices("strategicPlanning.title")}
+                </h3>
                 <p className="text-muted-foreground">
-                  We deliver an intuitive and user-friendly interface design
-                  that provides effortless interaction. Our interface makes it
-                  easy to navigate and use our platform.
+                  {tServices("strategicPlanning.description")}
                 </p>
               </Card>
 
@@ -277,11 +247,11 @@ export default function HomePage() {
                 <div className="bg-primary/10 flex h-12 w-12 items-center justify-center rounded-lg">
                   <Users className="text-primary h-6 w-6" />
                 </div>
-                <h3 className="text-xl">Team Development</h3>
+                <h3 className="text-xl">
+                  {tServices("teamDevelopment.title")}
+                </h3>
                 <p className="text-muted-foreground">
-                  Build high-performing teams with tailored development programs
-                  and leadership training designed to drive organizational
-                  excellence.
+                  {tServices("teamDevelopment.description")}
                 </p>
               </Card>
 
@@ -289,10 +259,9 @@ export default function HomePage() {
                 <div className="bg-primary/10 flex h-12 w-12 items-center justify-center rounded-lg">
                   <TrendingUp className="text-primary h-6 w-6" />
                 </div>
-                <h3 className="text-xl">Growth Strategy</h3>
+                <h3 className="text-xl">{tServices("growthStrategy.title")}</h3>
                 <p className="text-muted-foreground">
-                  Accelerate your business growth with data-driven strategies
-                  and market insights tailored to your industry and goals.
+                  {tServices("growthStrategy.description")}
                 </p>
               </Card>
 
@@ -300,10 +269,11 @@ export default function HomePage() {
                 <div className="bg-primary/10 flex h-12 w-12 items-center justify-center rounded-lg">
                   <Target className="text-primary h-6 w-6" />
                 </div>
-                <h3 className="text-xl">Business Consulting</h3>
+                <h3 className="text-xl">
+                  {tServices("businessConsulting.title")}
+                </h3>
                 <p className="text-muted-foreground">
-                  Expert consulting services to optimize operations, improve
-                  efficiency, and achieve sustainable competitive advantage.
+                  {tServices("businessConsulting.description")}
                 </p>
               </Card>
 
@@ -311,10 +281,11 @@ export default function HomePage() {
                 <div className="bg-primary/10 flex h-12 w-12 items-center justify-center rounded-lg">
                   <BarChart3 className="text-primary h-6 w-6" />
                 </div>
-                <h3 className="text-xl">Financial Advisory</h3>
+                <h3 className="text-xl">
+                  {tServices("financialAdvisory.title")}
+                </h3>
                 <p className="text-muted-foreground">
-                  Comprehensive financial planning and advisory services to
-                  secure your business's financial future and maximize returns.
+                  {tServices("financialAdvisory.description")}
                 </p>
               </Card>
 
@@ -322,13 +293,23 @@ export default function HomePage() {
                 <div className="bg-primary/10 flex h-12 w-12 items-center justify-center rounded-lg">
                   <Shield className="text-primary h-6 w-6" />
                 </div>
-                <h3 className="text-xl">Risk Management</h3>
+                <h3 className="text-xl">{tServices("riskManagement.title")}</h3>
                 <p className="text-muted-foreground">
-                  Identify, assess, and mitigate business risks with our
-                  comprehensive risk management strategies and solutions.
+                  {tServices("riskManagement.description")}
                 </p>
               </Card>
             </div>
+          </Container>
+        </section>
+
+        {/* Client Carousel Section */}
+        <section className="bg-white py-12 md:py-16">
+          <Container>
+            <div className="mb-8 text-center">
+              <h2 className="mb-2 text-2xl sm:text-3xl">{tClients("title")}</h2>
+              <p className="text-muted-foreground">{tClients("subtitle")}</p>
+            </div>
+            <ClientCarousel />
           </Container>
         </section>
 
@@ -336,28 +317,25 @@ export default function HomePage() {
         <section id="contact" className="py-16 md:py-20">
           <Container>
             <div className="bg-primary/5 rounded-2xl p-8 text-center md:p-12">
-              <h2 className="mb-4 text-3xl">
-                Ready to transform your business?
-              </h2>
+              <h2 className="mb-4 text-3xl">{tCta("title")}</h2>
               <p className="text-muted-foreground mx-auto mb-8 max-w-2xl">
-                Get in touch with our team to discuss how we can help you
-                achieve your strategic goals and drive sustainable growth.
+                {tCta("description")}
               </p>
               <div className="flex flex-col justify-center gap-3 sm:flex-row sm:gap-4">
                 <Button size="lg" render={<Link href="/#contact" />}>
-                  Contact Us
+                  {tCta("contactUs")}
                 </Button>
                 <Button
                   variant="outline"
                   size="lg"
                   render={<Link href="/#services" />}
                 >
-                  Learn More
+                  {tCta("learnMore")}
                 </Button>
               </div>
               <div className="border-border/50 mt-8 border-t pt-8">
                 <p className="text-muted-foreground mb-2 text-sm font-medium">
-                  Contact Information
+                  {tCta("contactInfo")}
                 </p>
                 <p className="mb-1 text-sm">
                   <a

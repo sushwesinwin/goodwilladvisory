@@ -1,0 +1,120 @@
+{
+  "metadata": {
+    "title": "Goodwill Advisory Group",
+    "description": "Professional advisory services for strategic business growth and transformation.",
+    "tagline": "Professional advisory services for strategic business growth."
+  },
+  "nav": {
+    "services": "Services",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Build & growth with ",
+    "titleHighlight": "strategic advisory",
+    "subtitle": "Professional HR, Financial Consulting, and Recruitment Solutions",
+    "cta": "EXPLORE MORE"
+  },
+  "stats": {
+    "satisfaction": {
+      "value": "95%",
+      "label": "Client satisfaction"
+    },
+    "experience": {
+      "value": "10+",
+      "label": "Years of consulting experience"
+    },
+    "businesses": {
+      "value": "50+",
+      "label": "Businesses supported"
+    },
+    "placements": {
+      "value": "100+",
+      "label": "Successful placements"
+    }
+  },
+  "about": {
+    "title": "About Us",
+    "intro": "We provide strategic HR, financial consulting, and recruitment services to help small and medium-sized enterprises (SMEs) grow and succeed.",
+    "slogan": {
+      "line1": "Goodwill for",
+      "line2": "Good Value"
+    },
+    "history": {
+      "paragraph1": "Goodwill Advisory Group is founded in 2015 by a group of young professionals with international exposure to provide professional Human Resources Consulting, Accounting and Financial Services to organizations of all sizes.",
+      "paragraph2": "Goodwill Advisory has been providing vital services to progressive business owners to create successful strategies for growth and efficiency in the organizations. Our experienced team of professionals has expertise in a broad range of specialties in Asia."
+    },
+    "approach": {
+      "title": "Our Approach",
+      "paragraph1": "Goodwill Advisory Services is dedicated to not only hiring exceptional people but also to thinking outside the box and reevaluating the status quo to develop truly unique solutions.",
+      "paragraph2": "We customize our services to your specific needs and stage of development. We are very analytical, data-oriented and business-minded team that provide frequent feedback and design and develop programs with you, not for you."
+    },
+    "closing": "This ensures the end product is exactly what you need and will take your business to the next level. We truly care about our clients' business growth as well as our own. We serve as your strategic partner, providing you with the details you need to make informed, effective decisions that will benefit your business now and into the future."
+  },
+  "mission": {
+    "rating": "4.9/5 reviews",
+    "statement": "We are passionate about empowering individuals and ",
+    "statementHighlight": "businesses to take control of their finances and achieve their financial goals."
+  },
+  "services": {
+    "title": "Empowering and strengthening your business success",
+    "strategicPlanning": {
+      "title": "Strategic Planning",
+      "description": "We deliver an intuitive and user-friendly interface design that provides effortless interaction. Our interface makes it easy to navigate and use our platform."
+    },
+    "teamDevelopment": {
+      "title": "Team Development",
+      "description": "Build high-performing teams with tailored development programs and leadership training designed to drive organizational excellence."
+    },
+    "growthStrategy": {
+      "title": "Growth Strategy",
+      "description": "Accelerate your business growth with data-driven strategies and market insights tailored to your industry and goals."
+    },
+    "businessConsulting": {
+      "title": "Business Consulting",
+      "description": "Expert consulting services to optimize operations, improve efficiency, and achieve sustainable competitive advantage."
+    },
+    "financialAdvisory": {
+      "title": "Financial Advisory",
+      "description": "Comprehensive financial planning and advisory services to secure your business's financial future and maximize returns."
+    },
+    "riskManagement": {
+      "title": "Risk Management",
+      "description": "Identify, assess, and mitigate business risks with our comprehensive risk management strategies and solutions."
+    }
+  },
+  "clients": {
+    "title": "Trusted by Leading Organizations",
+    "subtitle": "Partnering with industry leaders across various sectors"
+  },
+  "cta": {
+    "title": "Ready to transform your business?",
+    "description": "Get in touch with our team to discuss how we can help you achieve your strategic goals and drive sustainable growth.",
+    "contactUs": "Contact Us",
+    "learnMore": "Learn More",
+    "contactInfo": "Contact Information"
+  },
+  "footer": {
+    "companyName": "Goodwill Advisory Group",
+    "tagline": "Professional advisory services for strategic business growth.",
+    "quickLinks": "Quick Links",
+    "services": "Services",
+    "contact": "Contact",
+    "aboutUs": "About Us",
+    "strategicPlanning": "Strategic Planning",
+    "businessConsulting": "Business Consulting",
+    "financialAdvisory": "Financial Advisory",
+    "riskManagement": "Risk Management",
+    "copyright": "© {year} {siteName}. All rights reserved.",
+    "socialLabels": {
+      "facebook": "Facebook",
+      "linkedin": "LinkedIn",
+      "tiktok": "TikTok"
+    }
+  },
+  "common": {
+    "loading": "Loading...",
+    "switchLanguage": "Switch language",
+    "currentLanguage": "Current language"
+  }
+}
