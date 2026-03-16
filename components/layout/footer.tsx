@@ -1,9 +1,8 @@
 import Link from "next/link"
+import Image from "next/image"
 import { Container } from "./container"
 import { Separator } from "@/components/ui/separator"
 import { siteConfig } from "@/config/site"
-
-import { Facebook, Linkedin, Music } from "lucide-react"
 
 export function Footer() {
   const currentYear = new Date().getFullYear()
@@ -24,27 +23,45 @@ export function Footer() {
                   href={siteConfig.links.facebook}
                   target="_blank"
                   rel="noreferrer"
-                  className="text-muted-foreground hover:text-primary transition-colors"
+                  className="transition-opacity hover:opacity-70"
                 >
-                  <Facebook className="h-5 w-5" />
+                  <Image
+                    src="/social/fb.svg"
+                    alt="Facebook"
+                    width={20}
+                    height={20}
+                    className="h-5 w-5"
+                  />
                   <span className="sr-only">Facebook</span>
                 </Link>
                 <Link
                   href={siteConfig.links.linkedin}
                   target="_blank"
                   rel="noreferrer"
-                  className="text-muted-foreground hover:text-primary transition-colors"
+                  className="transition-opacity hover:opacity-70"
                 >
-                  <Linkedin className="h-5 w-5" />
+                  <Image
+                    src="/social/linkedin.svg"
+                    alt="LinkedIn"
+                    width={20}
+                    height={20}
+                    className="h-5 w-5"
+                  />
                   <span className="sr-only">LinkedIn</span>
                 </Link>
                 <Link
                   href={siteConfig.links.tiktok}
                   target="_blank"
                   rel="noreferrer"
-                  className="text-muted-foreground hover:text-primary transition-colors"
+                  className="transition-opacity hover:opacity-70"
                 >
-                  <Music className="h-5 w-5" />
+                  <Image
+                    src="/social/tiktok.svg"
+                    alt="TikTok"
+                    width={20}
+                    height={20}
+                    className="h-5 w-5"
+                  />
                   <span className="sr-only">TikTok</span>
                 </Link>
               </div>

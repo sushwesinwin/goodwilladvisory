@@ -14,6 +14,7 @@ import {
   Target,
   BarChart3,
   Shield,
+  ArrowRight,
 } from "lucide-react"
 import Image from "next/image"
 import { ClientCarousel } from "@/components/layout/client-carousel"
@@ -34,70 +35,83 @@ export default function HomePage() {
       <Header />
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="bg-white py-12 md:py-20 lg:py-24">
-          <Container>
-            <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
+        <section className="relative flex min-h-screen flex-col bg-white">
+          <Container className="flex flex-1 flex-col">
+            <div className="grid flex-1 items-start gap-8 pt-8 lg:grid-cols-2 lg:gap-12">
               {/* Left: Hero Content */}
-              <div className="space-y-6">
-                <h1 className="text-4xl tracking-tight text-balance sm:text-5xl lg:text-6xl">
+              <div className="flex min-h-[calc(100vh-6rem)] flex-col">
+                <div className="flex-1" />
+
+                <h1 className="text-4xl font-light tracking-tight text-balance sm:text-5xl lg:text-6xl">
                   {tHero("title")}
-                  <span className="text-primary">
+                  <span className="text-primary font-extralight">
                     {tHero("titleHighlight")}
                   </span>
                 </h1>
-                <p className="text-muted-foreground max-w-xl text-lg sm:text-xl">
-                  {tHero("subtitle")}
-                </p>
-                <div className="flex flex-col gap-3 sm:flex-row sm:gap-4">
-                  <Button size="lg" render={<Link href="/#services" />}>
-                    {tHero("cta")}
-                  </Button>
+
+                <div className="flex-1" />
+
+                <div className="space-y-6 pb-12">
+                  <p className="text-muted-foreground max-w-xl text-lg font-light sm:text-xl">
+                    {tHero("subtitle")}
+                  </p>
+                  <div className="flex flex-col gap-3 sm:flex-row sm:gap-4">
+                    <Button
+                      size="lg"
+                      render={<Link href="/#services" />}
+                      className="gap-4 rounded-full py-6 pr-3 pl-8"
+                    >
+                      {tHero("cta")}
+                      <span className="flex h-10 w-10 items-center justify-center rounded-full bg-white">
+                        <ArrowRight className="text-primary h-5 w-5" />
+                      </span>
+                    </Button>
+                  </div>
                 </div>
               </div>
 
-              {/* Right: Hero Slider */}
-              <div className="ring-border/50 relative aspect-video overflow-hidden rounded-2xl shadow-2xl ring-1">
-                <HeroSlider />
-              </div>
-            </div>
-          </Container>
-        </section>
+              {/* Right: Hero Slider & Stats */}
+              <div className="space-y-8">
+                {/* Hero Slider */}
+                <div className="ring-border/50 relative aspect-video overflow-hidden rounded-2xl shadow-2xl ring-1">
+                  <HeroSlider />
+                </div>
 
-        {/* Stats Section */}
-        <section className="bg-gray-50">
-          <Container>
-            <div className="grid grid-cols-2 gap-8 lg:grid-cols-4">
-              <div className="text-center">
-                <div className="text-primary mb-2 text-4xl lg:text-5xl">
-                  {tStats("satisfaction.value")}
+                {/* Stats */}
+                <div className="grid grid-cols-2 gap-4 lg:gap-6">
+                  <div className="rounded-xl bg-gray-50 p-4 text-center">
+                    <div className="text-primary mb-1 text-3xl font-medium lg:text-4xl">
+                      {tStats("satisfaction.value")}
+                    </div>
+                    <p className="text-muted-foreground text-xs font-light lg:text-sm">
+                      {tStats("satisfaction.label")}
+                    </p>
+                  </div>
+                  <div className="rounded-xl bg-gray-50 p-4 text-center">
+                    <div className="text-primary mb-1 text-3xl font-medium lg:text-4xl">
+                      {tStats("experience.value")}
+                    </div>
+                    <p className="text-muted-foreground text-xs font-light lg:text-sm">
+                      {tStats("experience.label")}
+                    </p>
+                  </div>
+                  <div className="rounded-xl bg-gray-50 p-4 text-center">
+                    <div className="text-primary mb-1 text-3xl font-medium lg:text-4xl">
+                      {tStats("businesses.value")}
+                    </div>
+                    <p className="text-muted-foreground text-xs font-light lg:text-sm">
+                      {tStats("businesses.label")}
+                    </p>
+                  </div>
+                  <div className="rounded-xl bg-gray-50 p-4 text-center">
+                    <div className="text-primary mb-1 text-3xl font-medium lg:text-4xl">
+                      {tStats("placements.value")}
+                    </div>
+                    <p className="text-muted-foreground text-xs font-light lg:text-sm">
+                      {tStats("placements.label")}
+                    </p>
+                  </div>
                 </div>
-                <p className="text-muted-foreground text-sm">
-                  {tStats("satisfaction.label")}
-                </p>
-              </div>
-              <div className="text-center">
-                <div className="text-primary mb-2 text-4xl lg:text-5xl">
-                  {tStats("experience.value")}
-                </div>
-                <p className="text-muted-foreground text-sm">
-                  {tStats("experience.label")}
-                </p>
-              </div>
-              <div className="text-center">
-                <div className="text-primary mb-2 text-4xl lg:text-5xl">
-                  {tStats("businesses.value")}
-                </div>
-                <p className="text-muted-foreground text-sm">
-                  {tStats("businesses.label")}
-                </p>
-              </div>
-              <div className="text-center">
-                <div className="text-primary mb-2 text-4xl lg:text-5xl">
-                  {tStats("placements.value")}
-                </div>
-                <p className="text-muted-foreground text-sm">
-                  {tStats("placements.label")}
-                </p>
               </div>
             </div>
           </Container>
