@@ -132,62 +132,59 @@ export default function HomePage() {
         {/* About Us Section */}
         <section
           id="about"
-          className="relative overflow-hidden bg-gray-50 py-20 md:py-28"
+          className="relative overflow-hidden bg-gray-50 pt-8 pb-12 md:pt-10 md:pb-16"
         >
           <Container className="relative">
             <div className="mx-auto max-w-6xl">
-              {/* Two-Column Layout */}
-              <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
-                {/* Left Column: Content */}
-                <div className="space-y-8 lg:col-span-5">
-                  <div>
-                    <h2 className="mb-5 text-4xl font-light tracking-tight text-balance sm:text-5xl lg:text-6xl">
-                      {tAbout("title")}
-                    </h2>
-                    <p className="text-muted-foreground text-lg font-normal sm:text-xl">
-                      {tAbout("intro")}
-                    </p>
-                  </div>
-
-                  <div className="space-y-4">
-                    <p className="text-foreground/90 text-base leading-relaxed font-normal md:text-lg">
-                      {tAbout("history.paragraph1")}
-                    </p>
-                    <p className="text-foreground/90 text-base leading-relaxed font-normal md:text-lg">
-                      {tAbout("history.paragraph2")}
-                    </p>
-                  </div>
-
-                  <div className="space-y-4 pt-4">
-                    <div className="flex items-center gap-3">
-                      <div className="bg-primary h-10 w-1 rounded-full" />
-                      <h3 className="text-2xl font-bold md:text-3xl">
-                        {tAbout("approach.title")}
-                      </h3>
-                    </div>
-                    <p className="text-foreground/90 text-base leading-relaxed font-normal md:text-lg">
-                      {tAbout("approach.paragraph1")}
-                    </p>
-                  </div>
+              {/* Header: Two-Column Layout */}
+              <div className="mb-12 grid gap-8 lg:grid-cols-2 lg:gap-16">
+                {/* Left: Heading */}
+                <div className="lg:col-span-1">
+                  <h2 className="text-4xl font-light tracking-tight text-balance sm:text-5xl lg:text-6xl">
+                    {tAbout("title")}
+                  </h2>
                 </div>
 
-                {/* Right Column: Visual + Supporting */}
-                <div className="space-y-8 lg:col-span-7">
-                  {/* Team Photo */}
-                  <div className="group relative">
-                    <div className="bg-primary/20 absolute inset-0 rounded-lg blur-xl transition-all duration-300 group-hover:blur-2xl" />
-                    <div className="ring-border/50 relative aspect-video overflow-hidden rounded-lg shadow-2xl ring-1">
-                      <Image
-                        src="/images/aboutus.png"
-                        alt="Goodwill Advisory Group team"
-                        fill
-                        className="object-cover transition-transform duration-500 group-hover:scale-105"
-                      />
-                    </div>
-                  </div>
+                {/* Right: Intro */}
+                <div className="lg:col-span-1">
+                  <p className="text-muted-foreground text-sm leading-relaxed font-normal">
+                    {tAbout("intro")}
+                  </p>
+                </div>
+              </div>
 
+              {/* History & Image Section */}
+              <div className="mb-16 grid gap-8 lg:grid-cols-2 lg:gap-16">
+                {/* Left: History */}
+                <div className="space-y-4 lg:col-span-1">
+                  <p className="text-muted-foreground text-base leading-relaxed font-normal">
+                    {tAbout("history.paragraph1")}
+                  </p>
+                  <p className="text-muted-foreground text-base leading-relaxed font-normal">
+                    {tAbout("history.paragraph2")}
+                  </p>
+                </div>
+
+                {/* Right: Team Photo */}
+                <div className="group relative lg:col-span-1">
+                  <div className="bg-primary/20 absolute inset-0 rounded blur-xl transition-all duration-300 group-hover:blur-2xl" />
+                  <div className="ring-border/50 relative aspect-video overflow-hidden rounded shadow-2xl ring-1">
+                    <Image
+                      src="/aboutus.png"
+                      alt="Goodwill Advisory Group team"
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Content Grid */}
+              <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
+                {/* Left Column: Slogan Quote */}
+                <div className="flex items-center justify-center lg:col-span-1">
                   {/* Slogan Quote */}
-                  <div className="relative flex items-center justify-center lg:justify-start">
+                  <div className="relative flex items-center justify-center">
                     <div className="relative">
                       <Image
                         src="/quote.svg"
@@ -211,21 +208,24 @@ export default function HomePage() {
                       />
                     </div>
                   </div>
-
-                  {/* Approach Paragraph 2 */}
-                  <p className="text-foreground/90 text-base leading-relaxed font-normal md:text-lg">
-                    {tAbout("approach.paragraph2")}
-                  </p>
                 </div>
-              </div>
 
-              {/* Closing Statement - Full Width */}
-              <div className="relative mt-12">
-                <div className="bg-primary/5 absolute inset-0 rounded-lg blur-xl" />
-                <div className="from-primary/10 via-primary/5 to-primary/10 relative rounded-lg bg-linear-to-r p-8 text-center md:p-12">
-                  <p className="text-foreground/90 mx-auto max-w-4xl text-lg leading-relaxed font-normal italic md:text-xl">
-                    {tAbout("closing")}
-                  </p>
+                {/* Right Column: Approach */}
+                <div className="space-y-6 lg:col-span-1">
+                  <h3 className="text-4xl font-light tracking-tight text-balance sm:text-5xl lg:text-6xl">
+                    {tAbout("approach.title")}
+                  </h3>
+                  <div className="space-y-4">
+                    <p className="text-muted-foreground text-sm leading-relaxed font-normal">
+                      {tAbout("approach.paragraph1")}
+                    </p>
+                    <p className="text-muted-foreground text-sm leading-relaxed font-normal">
+                      {tAbout("approach.paragraph2")}
+                    </p>
+                    <p className="text-muted-foreground text-sm leading-relaxed font-normal">
+                      {tAbout("closing")}
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -242,7 +242,7 @@ export default function HomePage() {
                   {tMission("rating")}
                 </span>
               </div>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl">
+              <h2 className="text-4xl font-light tracking-tight text-balance sm:text-5xl lg:text-6xl">
                 {tMission("statement")}
                 <span className="text-muted-foreground">
                   {tMission("statementHighlight")}
