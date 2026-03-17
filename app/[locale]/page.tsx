@@ -19,6 +19,7 @@ import {
 import Image from "next/image"
 import { ClientCarousel } from "@/components/layout/client-carousel"
 import { HeroSlider } from "@/components/layout/hero-slider"
+import { ScrollToTop } from "@/components/scroll-to-top"
 import { useTranslations } from "next-intl"
 
 export default function HomePage() {
@@ -398,6 +399,7 @@ export default function HomePage() {
         </section>
       </main>
       <Footer />
+      <ScrollToTop />
     </>
   )
 }
