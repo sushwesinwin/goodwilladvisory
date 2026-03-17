@@ -33,88 +33,99 @@ export default function HomePage() {
   return (
     <>
       <Header />
+
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="relative flex min-h-screen flex-col bg-white">
-          <Container className="flex flex-1 flex-col">
-            <div className="grid flex-1 items-start gap-8 pt-8 lg:grid-cols-2 lg:gap-12">
-              {/* Left: Hero Content */}
-              <div className="flex min-h-[calc(100vh-6rem)] flex-col">
-                <div className="flex-1" />
-
-                <h1 className="text-4xl font-light tracking-tight text-balance sm:text-5xl lg:text-6xl">
-                  {tHero("title")}
-                  <span className="text-primary font-extralight">
-                    {tHero("titleHighlight")}
-                  </span>
-                </h1>
-
-                <div className="flex-1" />
-
-                <div className="space-y-6 pb-12">
-                  <p className="text-muted-foreground max-w-xl text-lg font-light sm:text-xl">
-                    {tHero("subtitle")}
+        <section className="relative bg-white py-12 md:py-16">
+          <Container>
+            <div className="grid items-start gap-8 lg:grid-cols-2 lg:gap-12">
+              {/* Left: Hero Text */}
+              <div className="flex h-[350px] flex-col justify-between pt-4 lg:h-[400px]">
+                <div className="space-y-8">
+                  <p className="text-primary text-sm font-bold tracking-wider uppercase">
+                    {tHero("tagline")}
                   </p>
-                  <div className="flex flex-col gap-3 sm:flex-row sm:gap-4">
+                  <div className="space-y-3">
+                    <h1 className="text-4xl font-light tracking-tight text-balance sm:text-5xl lg:text-6xl">
+                      {tHero("title")}
+                      <span className="text-primary font-extralight">
+                        {tHero("titleHighlight")}
+                      </span>
+                    </h1>
+                    <p className="text-muted-foreground max-w-xl text-base leading-relaxed font-normal">
+                      {tHero("subtitle")}
+                    </p>
+                  </div>
+                  <div>
                     <Button
                       size="lg"
                       render={<Link href="/#services" />}
-                      className="gap-4 rounded-full py-6 pr-3 pl-8"
+                      className="group gap-3 rounded-full py-6 pr-2 pl-6 shadow-lg transition-all hover:gap-4 hover:shadow-xl"
                     >
-                      {tHero("cta")}
-                      <span className="flex h-10 w-10 items-center justify-center rounded-full bg-white">
-                        <ArrowRight className="text-primary h-5 w-5" />
+                      <span className="text-sm font-bold tracking-wide">
+                        {tHero("cta")}
+                      </span>
+                      <span className="flex h-7 w-7 items-center justify-center rounded-full bg-white shadow-md transition-all group-hover:translate-x-1 group-hover:shadow-lg">
+                        <ArrowRight className="text-primary h-3.5 w-3.5" />
                       </span>
                     </Button>
                   </div>
                 </div>
+
+                <div></div>
               </div>
 
-              {/* Right: Hero Slider & Stats */}
-              <div className="space-y-8">
-                {/* Hero Slider */}
-                <div className="ring-border/50 relative aspect-video overflow-hidden rounded-2xl shadow-2xl ring-1">
+              {/* Right: Slider */}
+              <div className="relative h-[280px] w-full lg:h-[320px]">
+                <div className="ring-border/50 relative h-full w-full overflow-hidden rounded-lg shadow-2xl ring-1">
                   <HeroSlider />
-                </div>
-
-                {/* Stats */}
-                <div className="grid grid-cols-2 gap-4 lg:gap-6">
-                  <div className="rounded-xl bg-gray-50 p-4 text-center">
-                    <div className="text-primary mb-1 text-3xl font-medium lg:text-4xl">
-                      {tStats("satisfaction.value")}
-                    </div>
-                    <p className="text-muted-foreground text-xs font-light lg:text-sm">
-                      {tStats("satisfaction.label")}
-                    </p>
-                  </div>
-                  <div className="rounded-xl bg-gray-50 p-4 text-center">
-                    <div className="text-primary mb-1 text-3xl font-medium lg:text-4xl">
-                      {tStats("experience.value")}
-                    </div>
-                    <p className="text-muted-foreground text-xs font-light lg:text-sm">
-                      {tStats("experience.label")}
-                    </p>
-                  </div>
-                  <div className="rounded-xl bg-gray-50 p-4 text-center">
-                    <div className="text-primary mb-1 text-3xl font-medium lg:text-4xl">
-                      {tStats("businesses.value")}
-                    </div>
-                    <p className="text-muted-foreground text-xs font-light lg:text-sm">
-                      {tStats("businesses.label")}
-                    </p>
-                  </div>
-                  <div className="rounded-xl bg-gray-50 p-4 text-center">
-                    <div className="text-primary mb-1 text-3xl font-medium lg:text-4xl">
-                      {tStats("placements.value")}
-                    </div>
-                    <p className="text-muted-foreground text-xs font-light lg:text-sm">
-                      {tStats("placements.label")}
-                    </p>
-                  </div>
                 </div>
               </div>
             </div>
           </Container>
+
+          {/* Stats Section */}
+          <div className="bg-primary mt-10 py-6 md:mt-12 md:py-8">
+            <Container>
+              <p className="mb-4 text-center text-[10px] font-normal tracking-wider text-white/80 uppercase md:text-xs">
+                Trusted by leading businesses
+              </p>
+              <div className="grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6">
+                <div className="text-center">
+                  <div className="mb-1 text-2xl font-semibold text-white lg:text-3xl">
+                    {tStats("satisfaction.value")}
+                  </div>
+                  <p className="text-[10px] font-normal text-white/70 md:text-xs">
+                    {tStats("satisfaction.label")}
+                  </p>
+                </div>
+                <div className="text-center">
+                  <div className="mb-1 text-2xl font-semibold text-white lg:text-3xl">
+                    {tStats("experience.value")}
+                  </div>
+                  <p className="text-[10px] font-normal text-white/70 md:text-xs">
+                    {tStats("experience.label")}
+                  </p>
+                </div>
+                <div className="text-center">
+                  <div className="mb-1 text-2xl font-semibold text-white lg:text-3xl">
+                    {tStats("businesses.value")}
+                  </div>
+                  <p className="text-[10px] font-normal text-white/70 md:text-xs">
+                    {tStats("businesses.label")}
+                  </p>
+                </div>
+                <div className="text-center">
+                  <div className="mb-1 text-2xl font-semibold text-white lg:text-3xl">
+                    {tStats("placements.value")}
+                  </div>
+                  <p className="text-[10px] font-normal text-white/70 md:text-xs">
+                    {tStats("placements.label")}
+                  </p>
+                </div>
+              </div>
+            </Container>
+          </div>
         </section>
 
         {/* About Us Section */}
@@ -124,92 +135,94 @@ export default function HomePage() {
         >
           <Container className="relative">
             <div className="mx-auto max-w-6xl">
-              {/* Header */}
+              {/* Two-Column Layout */}
+              <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
+                {/* Left Column: Content */}
+                <div className="space-y-8 lg:col-span-5">
+                  <div>
+                    <h2 className="mb-5 text-4xl font-light tracking-tight text-balance sm:text-5xl lg:text-6xl">
+                      {tAbout("title")}
+                    </h2>
+                    <p className="text-muted-foreground text-lg font-normal sm:text-xl">
+                      {tAbout("intro")}
+                    </p>
+                  </div>
 
-              <h2 className="mb-5 text-4xl tracking-tight text-balance sm:text-5xl lg:text-6xl">
-                {tAbout("title")}
-              </h2>
-              <p className="text-muted-foreground w-full text-lg sm:text-xl">
-                {tAbout("intro")}
-              </p>
+                  <div className="space-y-4">
+                    <p className="text-foreground/90 text-base leading-relaxed font-normal md:text-lg">
+                      {tAbout("history.paragraph1")}
+                    </p>
+                    <p className="text-foreground/90 text-base leading-relaxed font-normal md:text-lg">
+                      {tAbout("history.paragraph2")}
+                    </p>
+                  </div>
 
-              {/* Main Content Grid */}
-              <div className="mb-16 grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
-                {/* Left: Slogan */}
-                <div className="relative flex items-center justify-center lg:justify-start">
-                  <div className="relative">
-                    {/* Opening Quote */}
-                    <Image
-                      src="/quote.svg"
-                      alt=""
-                      width={48}
-                      height={48}
-                      className="text-primary/25 absolute -top-4 -left-6 h-10 w-10 opacity-50 md:-top-6 md:-left-8 md:h-12 md:w-12"
-                    />
-
-                    <blockquote className="px-4 md:px-6">
-                      <p className="text-primary text-center font-serif text-3xl leading-tight italic md:text-4xl lg:text-5xl">
-                        {tAbout("slogan.line1")} <br /> {tAbout("slogan.line2")}
-                      </p>
-                    </blockquote>
-
-                    {/* Closing Quote */}
-                    <Image
-                      src="/quote.svg"
-                      alt=""
-                      width={48}
-                      height={48}
-                      className="text-primary/25 absolute -right-6 -bottom-4 h-10 w-10 rotate-180 opacity-50 md:-right-8 md:-bottom-6 md:h-12 md:w-12"
-                    />
+                  <div className="space-y-4 pt-4">
+                    <div className="flex items-center gap-3">
+                      <div className="bg-primary h-10 w-1 rounded-full" />
+                      <h3 className="text-2xl font-bold md:text-3xl">
+                        {tAbout("approach.title")}
+                      </h3>
+                    </div>
+                    <p className="text-foreground/90 text-base leading-relaxed font-normal md:text-lg">
+                      {tAbout("approach.paragraph1")}
+                    </p>
                   </div>
                 </div>
 
-                {/* Right: Photo */}
-                <div className="group relative">
-                  <div className="bg-primary/20 absolute inset-0 rounded-2xl blur-xl transition-all duration-300 group-hover:blur-2xl" />
-                  <div className="ring-border/50 relative aspect-video overflow-hidden rounded-2xl shadow-2xl ring-1">
-                    <Image
-                      src="/images/aboutus.png"
-                      alt="Goodwill Advisory Group team"
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
+                {/* Right Column: Visual + Supporting */}
+                <div className="space-y-8 lg:col-span-7">
+                  {/* Team Photo */}
+                  <div className="group relative">
+                    <div className="bg-primary/20 absolute inset-0 rounded-lg blur-xl transition-all duration-300 group-hover:blur-2xl" />
+                    <div className="ring-border/50 relative aspect-video overflow-hidden rounded-lg shadow-2xl ring-1">
+                      <Image
+                        src="/images/aboutus.png"
+                        alt="Goodwill Advisory Group team"
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                    </div>
                   </div>
+
+                  {/* Slogan Quote */}
+                  <div className="relative flex items-center justify-center lg:justify-start">
+                    <div className="relative">
+                      <Image
+                        src="/quote.svg"
+                        alt=""
+                        width={48}
+                        height={48}
+                        className="text-primary/25 absolute -top-4 -left-6 h-10 w-10 opacity-50 md:-top-6 md:-left-8 md:h-12 md:w-12"
+                      />
+                      <blockquote className="px-4 md:px-6">
+                        <p className="text-primary text-center font-serif text-3xl leading-tight italic md:text-4xl lg:text-5xl">
+                          {tAbout("slogan.line1")} <br />{" "}
+                          {tAbout("slogan.line2")}
+                        </p>
+                      </blockquote>
+                      <Image
+                        src="/quote.svg"
+                        alt=""
+                        width={48}
+                        height={48}
+                        className="text-primary/25 absolute -right-6 -bottom-4 h-10 w-10 rotate-180 opacity-50 md:-right-8 md:-bottom-6 md:h-12 md:w-12"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Approach Paragraph 2 */}
+                  <p className="text-foreground/90 text-base leading-relaxed font-normal md:text-lg">
+                    {tAbout("approach.paragraph2")}
+                  </p>
                 </div>
               </div>
 
-              {/* Content */}
-              <div className="mb-16 space-y-4 text-base leading-relaxed md:text-lg">
-                <p className="text-foreground/90">
-                  {tAbout("history.paragraph1")}
-                </p>
-
-                <p className="text-foreground/90">
-                  {tAbout("history.paragraph2")}
-                </p>
-              </div>
-
-              {/* Our Approach Card */}
-              <div className="from-background via-background to-primary/5 border-border/50 mb-12 rounded-2xl border bg-linear-to-br p-8 shadow-lg md:p-12">
-                <div className="mb-6 flex items-center gap-3">
-                  <div className="bg-primary h-10 w-1 rounded-full" />
-                  <h3 className="text-2xl font-bold md:text-3xl">
-                    {tAbout("approach.title")}
-                  </h3>
-                </div>
-
-                <div className="text-foreground/90 grid gap-8 text-base leading-relaxed md:grid-cols-2 md:text-lg">
-                  <p>{tAbout("approach.paragraph1")}</p>
-
-                  <p>{tAbout("approach.paragraph2")}</p>
-                </div>
-              </div>
-
-              {/* Closing Statement */}
-              <div className="relative">
-                <div className="bg-primary/5 absolute inset-0 rounded-2xl blur-xl" />
-                <div className="from-primary/10 via-primary/5 to-primary/10 relative rounded-2xl bg-linear-to-r p-8 text-center md:p-12">
-                  <p className="text-foreground/90 mx-auto max-w-4xl text-lg leading-relaxed italic md:text-xl">
+              {/* Closing Statement - Full Width */}
+              <div className="relative mt-12">
+                <div className="bg-primary/5 absolute inset-0 rounded-lg blur-xl" />
+                <div className="from-primary/10 via-primary/5 to-primary/10 relative rounded-lg bg-linear-to-r p-8 text-center md:p-12">
+                  <p className="text-foreground/90 mx-auto max-w-4xl text-lg leading-relaxed font-normal italic md:text-xl">
                     {tAbout("closing")}
                   </p>
                 </div>

@@ -7,9 +7,12 @@
   "nav": {
     "services": "Services",
     "about": "About",
-    "contact": "Contact"
+    "contact": "Contact",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
   },
   "hero": {
+    "tagline": "Your Trusted Advisory Partner",
     "title": "Build & growth with ",
     "titleHighlight": "Goodwill Advisory",
     "subtitle": "Professional HR, Financial Consulting, and Recruitment Solutions",

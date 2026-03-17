@@ -4,7 +4,7 @@ import { useState, useTransition, useEffect, useRef } from "react"
 import { useLocale } from "next-intl"
 import { usePathname, useRouter } from "@/lib/navigation"
 import { locales, localeNames, localeFlags, type Locale } from "@/i18n/config"
-import { ChevronDown, Check } from "lucide-react"
+import { ChevronDown } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 export function LanguageSwitcher() {
@@ -49,7 +49,7 @@ export function LanguageSwitcher() {
         onClick={() => setIsOpen(!isOpen)}
         disabled={isPending}
         className={cn(
-          "flex items-center gap-2 rounded-md px-3 py-2 text-sm font-light transition-opacity hover:opacity-60",
+          "hover:text-primary flex items-center gap-2 text-sm font-bold text-gray-500 transition-colors",
           isPending && "cursor-wait opacity-50"
         )}
         aria-label="Switch language"
@@ -64,22 +64,16 @@ export function LanguageSwitcher() {
 
       {/* Dropdown Menu */}
       {isOpen && (
-        <div className="border-border bg-background absolute right-0 mt-2 w-40 rounded-md border shadow-lg">
+        <div className="absolute right-0 mt-2 min-w-[120px] rounded-md border border-gray-200 bg-white shadow-lg">
           <div className="py-1">
             {locales.map((loc) => (
               <button
                 key={loc}
                 onClick={() => handleLocaleChange(loc)}
-                className={cn(
-                  "hover:bg-muted flex w-full items-center justify-between px-4 py-2 text-sm transition-colors",
-                  locale === loc && "bg-muted/50"
-                )}
+                className="hover:text-primary flex w-full items-center justify-start gap-2 px-4 py-2 text-sm font-bold text-gray-500 transition-colors hover:bg-gray-50"
               >
-                <span className="flex items-center gap-2">
-                  <span>{localeFlags[loc]}</span>
-                  <span>{localeNames[loc]}</span>
-                </span>
-                {locale === loc && <Check className="text-primary h-4 w-4" />}
+                <span>{localeFlags[loc]}</span>
+                <span>{localeNames[loc]}</span>
               </button>
             ))}
           </div>
