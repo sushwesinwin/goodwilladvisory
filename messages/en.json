@@ -10,7 +10,7 @@
     "contact": "Contact"
   },
   "hero": {
-    "tagline": "Professional advisory services for strategic business growth.",
+    "tagline": "Your Trusted Advisory Partner",
     "title": "Build & growth with ",
     "titleHighlight": "Goodwill Advisory",
     "subtitle": "Professional HR, Financial Consulting, and Recruitment Solutions",
@@ -18,7 +18,14 @@
   },
   "testimonials": {
     "title": "What Our Clients Say",
-    "subtitle": "Trusted by businesses and professionals across Myanmar"
+    "subtitle": "Trusted by businesses and professionals across Myanmar",
+    "items": {
+      "0": "A highly professional team with a unique approach. Led by two independent and confident female leaders, Goodwill brings both style and expertise to everything they do.",
+      "1": "Goodwill provides top-tier professional Financial and HR planning with a client-first approach. I highly recommend them for anyone seeking expert, personalized service.",
+      "2": "I feel at peace and can manage my businesses with ease because they set up a solid system for both of them. I truly appreciate our relationship, as they are always there to consult and discuss every challenge I face, even to this day.",
+      "3": "Huge thanks to the Goodwill Team! They found me the perfect position so quickly and provided dedicated support—completely free of charge—until I landed the job. Truly appreciate the care!",
+      "4": "In a challenging job market, Goodwill helped me land a great role at a top company. I really appreciate their free service for job seekers and the excellent follow-up care. Thank you to the team, and much success to Goodwill Group!"
+    }
   },
   "stats": {
     "satisfaction": {
@@ -148,11 +155,17 @@
   },
   "footer": {
     "companyName": "Goodwill Advisory Group",
-    "tagline": "Professional advisory services for strategic business growth.",
+    "tagline": "Professional advisory services for strategic business growth and transformation.",
     "quickLinks": "Quick Links",
+    "ourServices": "Our Services",
     "services": "Services",
     "contact": "Contact",
     "aboutUs": "About Us",
+    "getInTouch": "Get in Touch",
+    "peopleSolutions": "People Solutions",
+    "financeAdvisory": "Finance & Advisory Services",
+    "careerSolutions": "Career Solutions",
+    "address": "22 A Street (between 58th & 59th Streets), Nawarat Villa, Aungmyethazan Township, Mandalay, Myanmar",
     "strategicPlanning": "Strategic Planning",
     "businessConsulting": "Business Consulting",
     "financialAdvisory": "Financial Advisory",
