@@ -16,6 +16,9 @@ import { WhatWeDoTabs } from "@/components/what-we-do-tabs"
 import { TestimonialsCarousel } from "@/components/testimonials-carousel"
 import { useTranslations, useLocale } from "next-intl"
 import { cn } from "@/lib/utils"
+import { motion } from "framer-motion"
+import { AnimatedCounter } from "@/components/animated-counter"
+import { Star } from "lucide-react"
 
 export default function HomePage() {
   const locale = useLocale()
@@ -38,15 +41,17 @@ export default function HomePage() {
           <Container>
             <div className="grid items-start gap-6 md:gap-8 lg:grid-cols-2 lg:gap-12">
               {/* Left: Hero Text */}
-              <div className="flex min-h-[240px] flex-col justify-between text-center md:min-h-[280px] md:text-left lg:h-[320px]">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                className="flex min-h-[240px] flex-col justify-between text-center md:min-h-[280px] md:text-left lg:h-[320px]"
+              >
                 <div className="space-y-3 md:space-y-4">
-                  <p className="text-primary animate-in fade-in slide-in-from-bottom-4 text-xs font-bold tracking-widest uppercase duration-1000">
-                    {tHero("tagline")}
-                  </p>
                   <div className="space-y-2 md:space-y-3">
                     <h1
                       className={cn(
-                        "animate-in fade-in slide-in-from-bottom-6 fill-mode-backwards font-light tracking-tight text-balance delay-200 duration-1000",
+                        "font-light tracking-tight text-balance",
                         locale === "mm"
                           ? "text-2xl sm:text-3xl md:text-4xl lg:text-5xl"
                           : "text-3xl sm:text-4xl md:text-5xl lg:text-6xl"
@@ -57,13 +62,13 @@ export default function HomePage() {
                         {tHero("titleHighlight")}
                       </span>
                     </h1>
-                    <p className="text-muted-foreground animate-in fade-in slide-in-from-bottom-6 fill-mode-backwards mx-auto max-w-xl text-sm leading-relaxed delay-300 duration-1000 md:mx-0 md:text-base">
+                    <p className="text-muted-foreground mx-auto max-w-xl text-sm leading-relaxed md:mx-0 md:text-base">
                       {tHero("subtitle")}
                     </p>
                   </div>
                 </div>
 
-                <div className="animate-in fade-in slide-in-from-bottom-8 fill-mode-backwards flex flex-col items-center gap-4 delay-500 duration-1000 sm:flex-row md:items-center">
+                <div className="flex flex-col items-center gap-4 sm:flex-row md:items-center">
                   <Button
                     size="lg"
                     render={<Link href="/#services" />}
@@ -114,7 +119,7 @@ export default function HomePage() {
                     </a>
                   </div>
                 </div>
-              </div>
+              </motion.div>
 
               {/* Right: Slider */}
               <div className="relative h-[240px] w-full md:h-[280px] lg:h-[320px]">
@@ -129,38 +134,62 @@ export default function HomePage() {
           <div className="border-border/30 mt-8 border-t pt-6 md:mt-16 md:pt-8 lg:mt-20 lg:pt-10">
             <Container>
               <div className="grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6 lg:gap-8">
-                <div className="animate-in fade-in slide-in-from-bottom-4 fill-mode-backwards text-center delay-700 duration-1000">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, delay: 0.1 }}
+                  className="fill-mode-backwards text-center"
+                >
                   <div className="text-foreground mb-1 text-3xl font-light md:mb-2 md:text-4xl lg:text-5xl">
-                    {tStats("satisfaction.value")}
+                    <AnimatedCounter value={95} precision={0} />%
                   </div>
                   <p className="text-muted-foreground text-xs leading-tight font-medium md:text-sm">
                     {tStats("satisfaction.label")}
                   </p>
-                </div>
-                <div className="animate-in fade-in slide-in-from-bottom-4 fill-mode-backwards text-center delay-800 duration-1000">
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, delay: 0.2 }}
+                  className="fill-mode-backwards text-center"
+                >
                   <div className="text-foreground mb-1 text-3xl font-light md:mb-2 md:text-4xl lg:text-5xl">
-                    {tStats("experience.value")}
+                    <AnimatedCounter value={10} precision={0} />+
                   </div>
                   <p className="text-muted-foreground text-xs leading-tight font-medium md:text-sm">
                     {tStats("experience.label")}
                   </p>
-                </div>
-                <div className="animate-in fade-in slide-in-from-bottom-4 fill-mode-backwards text-center delay-900 duration-1000">
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, delay: 0.3 }}
+                  className="fill-mode-backwards text-center"
+                >
                   <div className="text-foreground mb-1 text-3xl font-light md:mb-2 md:text-4xl lg:text-5xl">
-                    {tStats("businesses.value")}
+                    <AnimatedCounter value={50} precision={0} />+
                   </div>
                   <p className="text-muted-foreground text-xs leading-tight font-medium md:text-sm">
                     {tStats("businesses.label")}
                   </p>
-                </div>
-                <div className="animate-in fade-in slide-in-from-bottom-4 fill-mode-backwards text-center delay-1000 duration-1000">
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, delay: 0.4 }}
+                  className="fill-mode-backwards text-center"
+                >
                   <div className="text-foreground mb-1 text-3xl font-light md:mb-2 md:text-4xl lg:text-5xl">
-                    {tStats("placements.value")}
+                    <AnimatedCounter value={100} precision={0} />+
                   </div>
                   <p className="text-muted-foreground text-xs leading-tight font-medium md:text-sm">
                     {tStats("placements.label")}
                   </p>
-                </div>
+                </motion.div>
               </div>
             </Container>
           </div>
@@ -169,7 +198,22 @@ export default function HomePage() {
         {/* Mission Section */}
         <section className="bg-primary/5 py-12 md:py-16">
           <Container>
-            <div className="mx-auto max-w-3xl space-y-6 text-center">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="mx-auto max-w-3xl space-y-6 text-center"
+            >
+              <div className="flex items-center justify-center gap-1 text-yellow-500">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="h-4 w-4 fill-current" />
+                ))}
+                <span className="text-foreground ml-2 text-sm font-medium">
+                  <AnimatedCounter value={4.9} precision={1} />
+                  /5 {tMission("rating").replace("4.9/5 ", "")}
+                </span>
+              </div>
               <h2
                 className={cn(
                   "font-light tracking-tight text-balance",
@@ -187,7 +231,7 @@ export default function HomePage() {
                   {tMission("statementHighlight")}
                 </span>
               </h2>
-            </div>
+            </motion.div>
           </Container>
         </section>
 
@@ -204,7 +248,13 @@ export default function HomePage() {
               {/* Header: Two-Column Layout */}
               <div className="mb-12 grid gap-8 lg:grid-cols-2 lg:gap-16">
                 {/* Left: Heading */}
-                <div className="lg:col-span-1">
+                <motion.div
+                  initial={{ opacity: 0, x: -30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8 }}
+                  className="lg:col-span-1"
+                >
                   <div className="border-primary mb-4 w-16 border-t-4" />
                   <h2
                     className={cn(
@@ -216,25 +266,42 @@ export default function HomePage() {
                   >
                     {tAbout("title")}
                   </h2>
-                </div>
+                </motion.div>
 
                 {/* Right: Intro */}
-                <div className="lg:col-span-1">
-                  <p className="text-muted-foreground text-sm leading-relaxed font-normal">
+                <motion.div
+                  initial={{ opacity: 0, x: 30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, delay: 0.2 }}
+                  className="lg:col-span-1"
+                >
+                  <p
+                    className={cn(
+                      "text-muted-foreground leading-relaxed font-normal",
+                      locale === "mm" ? "text-[13px] leading-loose" : "text-sm"
+                    )}
+                  >
                     {tAbout("intro")}
                   </p>
-                </div>
+                </motion.div>
               </div>
 
               {/* History & Image Section */}
               <div className="mb-16 grid gap-8 lg:grid-cols-2 lg:gap-16">
                 {/* Left: History */}
-                <div className="space-y-4 lg:col-span-1">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8 }}
+                  className="space-y-4 lg:col-span-1"
+                >
                   <p
                     className={cn(
                       "text-muted-foreground font-normal",
                       locale === "mm"
-                        ? "text-sm leading-loose"
+                        ? "text-[13px] leading-loose"
                         : "text-base leading-relaxed"
                     )}
                   >
@@ -244,16 +311,22 @@ export default function HomePage() {
                     className={cn(
                       "text-muted-foreground font-normal",
                       locale === "mm"
-                        ? "text-sm leading-loose"
+                        ? "text-[13px] leading-loose"
                         : "text-base leading-relaxed"
                     )}
                   >
                     {tAbout("history.paragraph2")}
                   </p>
-                </div>
+                </motion.div>
 
                 {/* Right: Team Photo */}
-                <div className="lg:col-span-1">
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 1 }}
+                  className="lg:col-span-1"
+                >
                   <div className="group relative">
                     <div className="bg-primary/20 absolute inset-0 rounded blur-xl transition-all duration-300 group-hover:blur-2xl" />
                     <div className="ring-border/50 relative aspect-video overflow-hidden rounded shadow-2xl ring-1">
@@ -262,6 +335,7 @@ export default function HomePage() {
                         alt="Goodwill Advisory Group team"
                         fill
                         className="object-cover transition-transform duration-500 group-hover:scale-105"
+                        priority
                       />
                       <div className="absolute bottom-6 left-6 rounded-full bg-white px-6 py-2.5 shadow-lg">
                         <p className="text-foreground text-sm font-semibold md:text-base">
@@ -270,7 +344,7 @@ export default function HomePage() {
                       </div>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               </div>
 
               {/* Content Grid */}
@@ -305,7 +379,13 @@ export default function HomePage() {
                 </div>
 
                 {/* Right Column: Approach */}
-                <div className="lg:col-span-1">
+                <motion.div
+                  initial={{ opacity: 0, x: 30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8 }}
+                  className="lg:col-span-1"
+                >
                   <h3
                     className={cn(
                       "mb-12 font-light tracking-tight text-balance",
@@ -321,7 +401,7 @@ export default function HomePage() {
                       className={cn(
                         "text-muted-foreground font-normal",
                         locale === "mm"
-                          ? "text-sm leading-loose"
+                          ? "text-[13px] leading-loose"
                           : "text-base leading-relaxed"
                       )}
                     >
@@ -331,7 +411,7 @@ export default function HomePage() {
                       className={cn(
                         "text-muted-foreground font-normal",
                         locale === "mm"
-                          ? "text-sm leading-loose"
+                          ? "text-[13px] leading-loose"
                           : "text-base leading-relaxed"
                       )}
                     >
@@ -341,7 +421,7 @@ export default function HomePage() {
                       className={cn(
                         "text-muted-foreground font-normal",
                         locale === "mm"
-                          ? "text-sm leading-loose"
+                          ? "text-[13px] leading-loose"
                           : "text-base leading-relaxed"
                       )}
                     >
@@ -367,7 +447,7 @@ export default function HomePage() {
                       </span>
                     </Button>
                   </div>
-                </div>
+                </motion.div>
               </div>
             </div>
           </Container>
@@ -385,7 +465,13 @@ export default function HomePage() {
               <div id="what-we-do-finance" className="scroll-mt-20" />
               <div id="what-we-do-recruitment" className="scroll-mt-20" />
 
-              <div className="mb-12 text-center">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+                className="mb-12 text-center"
+              >
                 <div className="border-primary mx-auto mb-8 w-16 border-t-4" />
                 <h2
                   className={cn(
@@ -397,7 +483,7 @@ export default function HomePage() {
                 >
                   {tServices("whatWeDo")}
                 </h2>
-              </div>
+              </motion.div>
               <WhatWeDoTabs />
             </div>
           </Container>
@@ -407,7 +493,13 @@ export default function HomePage() {
         <section className="bg-gray-50 py-5 md:py-10">
           <Container>
             <div className="mx-auto max-w-6xl">
-              <div className="mb-12 text-center">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+                className="mb-12 text-center"
+              >
                 <div className="border-primary mx-auto mb-8 w-16 border-t-4" />
                 <h2
                   className={cn(
@@ -422,9 +514,15 @@ export default function HomePage() {
                 <p className="text-muted-foreground text-base">
                   {tFounders("subtitle")}
                 </p>
-              </div>
+              </motion.div>
               <div className="mx-auto grid max-w-3xl gap-6 md:grid-cols-2">
-                <div className="text-center">
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, delay: 0.2 }}
+                  className="text-center"
+                >
                   <div className="ring-border/50 relative mx-auto mb-6 aspect-square max-w-xs overflow-hidden rounded-lg shadow-xl ring-1">
                     <Image
                       src="/D.png"
@@ -439,8 +537,14 @@ export default function HomePage() {
                   <p className="text-muted-foreground text-lg">
                     Director and Founder
                   </p>
-                </div>
-                <div className="text-center">
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, delay: 0.4 }}
+                  className="text-center"
+                >
                   <div className="ring-border/50 relative mx-auto mb-6 aspect-square max-w-xs overflow-hidden rounded-lg shadow-xl ring-1">
                     <Image
                       src="/MD.png"
@@ -455,7 +559,7 @@ export default function HomePage() {
                   <p className="text-muted-foreground text-lg">
                     Managing Director & Founder
                   </p>
-                </div>
+                </motion.div>
               </div>
             </div>
           </Container>
@@ -465,7 +569,13 @@ export default function HomePage() {
         <section className="bg-primary/5 py-16 md:py-20">
           <Container>
             <div className="mx-auto max-w-6xl">
-              <div className="mb-12 text-center">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+                className="mb-12 text-center"
+              >
                 <div className="border-primary mx-auto mb-8 w-16 border-t-4" />
                 <h2
                   className={cn(
@@ -480,7 +590,7 @@ export default function HomePage() {
                 <p className="text-muted-foreground text-base">
                   {tTestimonials("subtitle")}
                 </p>
-              </div>
+              </motion.div>
               <TestimonialsCarousel />
             </div>
           </Container>
@@ -489,7 +599,13 @@ export default function HomePage() {
         {/* Client Carousel Section */}
         <section id="clients-section" className="bg-white">
           <Container>
-            <div className="mb-12 text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="mb-12 text-center"
+            >
               <h2
                 className={cn(
                   "mb-2 font-light tracking-tight text-balance",
@@ -508,7 +624,7 @@ export default function HomePage() {
               >
                 {tClients("subtitle")}
               </p>
-            </div>
+            </motion.div>
             <ClientCarousel />
           </Container>
         </section>

@@ -1,44 +1,38 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import { useTranslations } from "next-intl"
 import { Card } from "@/components/ui/card"
 import { Quote, ChevronLeft, ChevronRight } from "lucide-react"
 import { cn } from "@/lib/utils"
 
-const testimonials = [
+const testimonialsData = [
   {
-    quote:
-      "A highly professional team with a unique approach. Led by two independent and confident female leaders, Goodwill brings both style and expertise to everything they do.",
     name: "Ma Myat Bhone",
     position: "The NAY KYAR Brand Marketing Agency",
   },
   {
-    quote:
-      "Goodwill provides top-tier professional Financial and HR planning with a client-first approach. I highly recommend them for anyone seeking expert, personalized service.",
     name: "Ko Kyi Soe",
     position: "iBaby",
   },
   {
-    quote:
-      "I feel at peace and can manage my businesses with ease because they set up a solid system for both of them. I truly appreciate our relationship, as they are always there to consult and discuss every challenge I face, even to this day.",
     name: "Ko Aung Ko Ko Moe",
     position: "BawGaLa Gp",
   },
   {
-    quote:
-      "Huge thanks to the Goodwill Team! They found me the perfect position so quickly and provided dedicated support—completely free of charge—until I landed the job. Truly appreciate the care!",
     name: "Nang Thandar",
     position: "Job Seeker",
   },
   {
-    quote:
-      "In a challenging job market, Goodwill helped me land a great role at a top company. I really appreciate their free service for job seekers and the excellent follow-up care. Thank you to the team, and much success to Goodwill Group!",
     name: "Yang Guang Ming",
     position: "Job Seeker",
   },
 ]
 
+import { motion } from "framer-motion"
+
 export function TestimonialsCarousel() {
+  const t = useTranslations("testimonials")
   const [currentIndex, setCurrentIndex] = useState(0)
   const [itemsPerPage, setItemsPerPage] = useState(3)
 
@@ -58,7 +52,7 @@ export function TestimonialsCarousel() {
     return () => window.removeEventListener("resize", handleResize)
   }, [])
 
-  const maxIndex = Math.max(0, testimonials.length - itemsPerPage)
+  const maxIndex = Math.max(0, testimonialsData.length - itemsPerPage)
 
   const handlePrevious = () => {
     setCurrentIndex((prev) => Math.max(0, prev - 1))
@@ -77,15 +71,19 @@ export function TestimonialsCarousel() {
             transform: `translateX(-${currentIndex * (100 / itemsPerPage)}%)`,
           }}
         >
-          {testimonials.map((testimonial, index) => (
-            <div
+          {testimonialsData.map((testimonial, index) => (
+            <motion.div
               key={index}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
               className="w-full flex-shrink-0 px-3 md:w-1/2 lg:w-1/3"
             >
-              <Card className="flex h-full flex-col space-y-4 bg-white p-6 shadow-sm">
+              <Card className="flex h-full flex-col space-y-3 bg-white p-5 shadow-sm transition-shadow hover:shadow-md">
                 <Quote className="text-primary/80 h-8 w-8" />
-                <p className="text-muted-foreground flex-1 text-sm leading-relaxed">
-                  {testimonial.quote}
+                <p className="text-muted-foreground flex-1 text-[13px] leading-loose">
+                  {t(`items.${index as 0 | 1 | 2 | 3 | 4}`)}
                 </p>
                 <div className="border-border/50 border-t pt-4">
                   <p className="font-semibold text-gray-900">
@@ -96,7 +94,7 @@ export function TestimonialsCarousel() {
                   </p>
                 </div>
               </Card>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

@@ -13,6 +13,7 @@ export function Footer() {
   const locale = useLocale()
   const currentYear = new Date().getFullYear()
   const tCta = useTranslations("cta")
+  const tFooter = useTranslations("footer")
 
   const handleNavClick = (hash: string) => {
     window.location.hash = hash
@@ -38,13 +39,20 @@ export function Footer() {
                   className={cn(
                     "font-light tracking-tight text-white",
                     locale === "mm"
-                      ? "text-xl sm:text-2xl md:text-3xl lg:text-4xl"
+                      ? "text-xl leading-loose sm:text-2xl md:text-3xl lg:text-4xl"
                       : "text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl"
                   )}
                 >
                   {tCta("title")}
                 </h2>
-                <p className="mx-auto max-w-md text-sm text-gray-400 md:text-base lg:mx-0 lg:text-lg">
+                <p
+                  className={cn(
+                    "mx-auto max-w-md text-gray-400 lg:mx-0",
+                    locale === "mm"
+                      ? "text-[13px] leading-loose"
+                      : "text-sm md:text-base lg:text-lg"
+                  )}
+                >
                   {tCta("description")}
                 </p>
                 <div className="flex justify-center gap-3 pt-2 md:gap-4 lg:justify-start">
@@ -114,48 +122,86 @@ export function Footer() {
                     className="h-8 w-auto brightness-0 invert md:h-10"
                   />
                 </Link>
-                <p className="text-sm leading-relaxed text-gray-400 md:text-base">
-                  {siteConfig.description}
+                <p
+                  className={cn(
+                    "leading-relaxed text-gray-400",
+                    locale === "mm"
+                      ? "text-[13px] leading-loose"
+                      : "text-sm md:text-base"
+                  )}
+                >
+                  {tFooter("tagline")}
                 </p>
               </div>
 
               {/* Column 2: Quick Links */}
               <div className="space-y-4 md:space-y-6">
-                <h4 className="text-center text-sm font-bold tracking-wider text-white uppercase md:text-base lg:text-left">
-                  Quick Links
+                <h4
+                  className={cn(
+                    "text-left font-bold tracking-wider text-white uppercase",
+                    locale === "mm"
+                      ? "text-[11px] md:text-[13px]"
+                      : "text-sm md:text-base"
+                  )}
+                >
+                  {tFooter("quickLinks")}
                 </h4>
-                <ul className="flex flex-col items-center space-y-3 md:space-y-4 lg:items-start">
+                <ul className="flex flex-col items-start space-y-3 md:space-y-4">
                   <li>
                     <button
                       onClick={() => handleNavClick("about")}
-                      className="group hover:text-primary flex cursor-pointer items-center gap-2 text-sm text-gray-400 transition-colors md:text-base"
+                      className="group hover:text-primary flex cursor-pointer items-center gap-2 text-gray-400 transition-colors"
                     >
                       <span className="opacity-0 transition-opacity group-hover:opacity-100">
                         ▸
                       </span>
-                      <span>About Us</span>
+                      <span
+                        className={cn(
+                          locale === "mm"
+                            ? "text-[11px] leading-loose md:text-[12px]"
+                            : "text-sm md:text-base"
+                        )}
+                      >
+                        {tFooter("aboutUs")}
+                      </span>
                     </button>
                   </li>
                   <li>
                     <button
                       onClick={() => handleNavClick("services")}
-                      className="group hover:text-primary flex cursor-pointer items-center gap-2 text-sm text-gray-400 transition-colors md:text-base"
+                      className="group hover:text-primary flex cursor-pointer items-center gap-2 text-gray-400 transition-colors"
                     >
                       <span className="opacity-0 transition-opacity group-hover:opacity-100">
                         ▸
                       </span>
-                      <span>Services</span>
+                      <span
+                        className={cn(
+                          locale === "mm"
+                            ? "text-[11px] leading-loose md:text-[12px]"
+                            : "text-sm md:text-base"
+                        )}
+                      >
+                        {tFooter("services")}
+                      </span>
                     </button>
                   </li>
                   <li>
                     <button
                       onClick={() => handleNavClick("contact")}
-                      className="group hover:text-primary flex cursor-pointer items-center gap-2 text-sm text-gray-400 transition-colors md:text-base"
+                      className="group hover:text-primary flex cursor-pointer items-center gap-2 text-gray-400 transition-colors"
                     >
                       <span className="opacity-0 transition-opacity group-hover:opacity-100">
                         ▸
                       </span>
-                      <span>Contact</span>
+                      <span
+                        className={cn(
+                          locale === "mm"
+                            ? "text-[11px] leading-loose md:text-[12px]"
+                            : "text-sm md:text-base"
+                        )}
+                      >
+                        {tFooter("contact")}
+                      </span>
                     </button>
                   </li>
                 </ul>
@@ -163,41 +209,72 @@ export function Footer() {
 
               {/* Column 3: Services */}
               <div className="space-y-4 md:space-y-6">
-                <h4 className="text-center text-sm font-bold tracking-wider text-white uppercase md:text-base lg:text-left">
-                  Our Services
+                <h4
+                  className={cn(
+                    "text-left font-bold tracking-wider text-white uppercase",
+                    locale === "mm"
+                      ? "text-[11px] md:text-[13px]"
+                      : "text-sm md:text-base"
+                  )}
+                >
+                  {tFooter("ourServices")}
                 </h4>
-                <ul className="flex flex-col items-center space-y-3 md:space-y-4 lg:items-start">
+                <ul className="flex flex-col items-start space-y-3 md:space-y-4">
                   <li>
                     <button
                       onClick={() => handleNavClick("what-we-do-hr")}
-                      className="group hover:text-primary flex cursor-pointer items-center gap-2 text-sm text-gray-400 transition-colors md:text-base"
+                      className="group hover:text-primary flex cursor-pointer items-center gap-2 text-gray-400 transition-colors"
                     >
                       <span className="opacity-0 transition-opacity group-hover:opacity-100">
                         ▸
                       </span>
-                      <span>People Solutions</span>
+                      <span
+                        className={cn(
+                          locale === "mm"
+                            ? "text-[11px] leading-loose md:text-[12px]"
+                            : "text-sm md:text-base"
+                        )}
+                      >
+                        {tFooter("peopleSolutions")}
+                      </span>
                     </button>
                   </li>
                   <li>
                     <button
                       onClick={() => handleNavClick("what-we-do-finance")}
-                      className="group hover:text-primary flex cursor-pointer items-center gap-2 text-sm text-gray-400 transition-colors md:text-base"
+                      className="group hover:text-primary flex cursor-pointer items-center gap-2 text-gray-400 transition-colors"
                     >
                       <span className="opacity-0 transition-opacity group-hover:opacity-100">
                         ▸
                       </span>
-                      <span>Finance & Advisory Services</span>
+                      <span
+                        className={cn(
+                          locale === "mm"
+                            ? "text-[11px] leading-loose md:text-[12px]"
+                            : "text-sm md:text-base"
+                        )}
+                      >
+                        {tFooter("financeAdvisory")}
+                      </span>
                     </button>
                   </li>
                   <li>
                     <button
                       onClick={() => handleNavClick("what-we-do-recruitment")}
-                      className="group hover:text-primary flex cursor-pointer items-center gap-2 text-sm text-gray-400 transition-colors md:text-base"
+                      className="group hover:text-primary flex cursor-pointer items-center gap-2 text-gray-400 transition-colors"
                     >
                       <span className="opacity-0 transition-opacity group-hover:opacity-100">
                         ▸
                       </span>
-                      <span>Career Solutions</span>
+                      <span
+                        className={cn(
+                          locale === "mm"
+                            ? "text-[11px] leading-loose md:text-[12px]"
+                            : "text-sm md:text-base"
+                        )}
+                      >
+                        {tFooter("careerSolutions")}
+                      </span>
                     </button>
                   </li>
                 </ul>
@@ -205,30 +282,53 @@ export function Footer() {
 
               {/* Column 4: Contact */}
               <div className="space-y-4 md:space-y-6">
-                <h4 className="text-center text-sm font-bold tracking-wider text-white uppercase md:text-base lg:text-left">
-                  Get in Touch
+                <h4
+                  className={cn(
+                    "text-left font-bold tracking-wider text-white uppercase",
+                    locale === "mm"
+                      ? "text-[11px] md:text-[13px]"
+                      : "text-sm md:text-base"
+                  )}
+                >
+                  {tFooter("getInTouch")}
                 </h4>
-                <ul className="flex flex-col items-center space-y-3 md:space-y-4 lg:items-start">
+                <ul className="flex flex-col items-start space-y-3 md:space-y-4">
                   <li>
                     <a
                       href={`mailto:${siteConfig.contact.email}`}
-                      className="group hover:text-primary flex cursor-pointer items-center gap-2 text-sm text-gray-400 transition-colors md:text-base"
+                      className="group hover:text-primary flex cursor-pointer items-center gap-2 text-gray-400 transition-colors"
                     >
                       <span className="opacity-0 transition-opacity group-hover:opacity-100">
                         ▸
                       </span>
-                      <span>{siteConfig.contact.email}</span>
+                      <span
+                        className={cn(
+                          locale === "mm"
+                            ? "text-[11px] md:text-[12px]"
+                            : "text-sm md:text-base"
+                        )}
+                      >
+                        {siteConfig.contact.email}
+                      </span>
                     </a>
                   </li>
                   <li>
                     <a
                       href={`tel:${siteConfig.contact.phone}`}
-                      className="group hover:text-primary flex cursor-pointer items-center gap-2 text-sm text-gray-400 transition-colors md:text-base"
+                      className="group hover:text-primary flex cursor-pointer items-center gap-2 text-gray-400 transition-colors"
                     >
                       <span className="opacity-0 transition-opacity group-hover:opacity-100">
                         ▸
                       </span>
-                      <span>{siteConfig.contact.phone}</span>
+                      <span
+                        className={cn(
+                          locale === "mm"
+                            ? "text-[11px] md:text-[12px]"
+                            : "text-sm md:text-base"
+                        )}
+                      >
+                        {siteConfig.contact.phone}
+                      </span>
                     </a>
                   </li>
                   <li>
@@ -236,12 +336,20 @@ export function Footer() {
                       href={siteConfig.contact.mapLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group hover:text-primary flex cursor-pointer items-start gap-2 text-center text-sm text-gray-400 transition-colors md:text-base lg:text-left"
+                      className="group hover:text-primary flex cursor-pointer items-start gap-2 text-left text-gray-400 transition-colors"
                     >
                       <span className="opacity-0 transition-opacity group-hover:opacity-100">
                         ▸
                       </span>
-                      <span>{siteConfig.contact.address}</span>
+                      <span
+                        className={cn(
+                          locale === "mm"
+                            ? "text-[11px] leading-loose md:text-[12px]"
+                            : "text-sm md:text-base"
+                        )}
+                      >
+                        {tFooter("address")}
+                      </span>
                     </a>
                   </li>
                 </ul>

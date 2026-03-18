@@ -2,6 +2,7 @@
 
 import Image from "next/image"
 import { useEffect, useState } from "react"
+import { motion } from "framer-motion"
 
 const heroImages = ["1.png", "2.png", "3.png", "4.png", "5.png"]
 
@@ -19,11 +20,18 @@ export function HeroSlider() {
   return (
     <div className="relative h-full w-full">
       {heroImages.map((image, index) => (
-        <div
+        <motion.div
           key={image}
-          className={`absolute inset-0 transition-opacity duration-1000 ${
-            index === currentIndex ? "opacity-100" : "opacity-0"
-          }`}
+          initial={{ opacity: 0, scale: 1.1 }}
+          animate={{
+            opacity: index === currentIndex ? 1 : 0,
+            scale: index === currentIndex ? 1 : 1.1,
+          }}
+          transition={{
+            opacity: { duration: 1.5, ease: "easeInOut" },
+            scale: { duration: 6, ease: "linear" },
+          }}
+          className="absolute inset-0"
         >
           <Image
             src={`/hero/${image}`}
@@ -32,7 +40,7 @@ export function HeroSlider() {
             className="object-cover"
             priority={index === 0}
           />
-        </div>
+        </motion.div>
       ))}
 
       {/* Overlay for better text readability */}

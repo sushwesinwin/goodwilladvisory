@@ -143,6 +143,8 @@ const tabs = [
   },
 ]
 
+import { motion, AnimatePresence } from "framer-motion"
+
 export function WhatWeDoTabs() {
   const locale = useLocale()
   const t = useTranslations("services.tabs")
@@ -152,7 +154,6 @@ export function WhatWeDoTabs() {
   const [activeTab, setActiveTab] = useState("hr")
 
   useEffect(() => {
-    // Function to handle hash changes
     const handleHashChange = () => {
       const hash = window.location.hash
       if (hash === "#what-we-do-hr") {
@@ -164,12 +165,8 @@ export function WhatWeDoTabs() {
       }
     }
 
-    // Check hash on mount
     handleHashChange()
-
-    // Listen for hash changes
     window.addEventListener("hashchange", handleHashChange)
-
     return () => window.removeEventListener("hashchange", handleHashChange)
   }, [])
 
@@ -196,59 +193,74 @@ export function WhatWeDoTabs() {
       </div>
 
       {/* Content */}
-      {currentTab && (
-        <div className="space-y-6 py-4">
-          <h3
-            className={cn(
-              "text-center font-light tracking-tight",
-              locale === "mm" ? "text-xl md:text-2xl" : "text-3xl md:text-4xl"
-            )}
+      <AnimatePresence mode="wait">
+        {currentTab && (
+          <motion.div
+            key={activeTab}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.3 }}
+            className="space-y-6 py-4"
           >
-            {tTitles(currentTab.id)}
-          </h3>
+            <h3
+              className={cn(
+                "text-center font-light tracking-tight",
+                locale === "mm" ? "text-xl md:text-2xl" : "text-3xl md:text-4xl"
+              )}
+            >
+              {tTitles(currentTab.id)}
+            </h3>
 
-          {currentTab.services ? (
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {currentTab.services.map((service, index) => {
-                const Icon = service.icon
-                return (
-                  <Card
-                    key={index}
-                    className="flex h-full flex-col space-y-4 p-5"
-                  >
-                    {Icon && (
-                      <div className="bg-primary/10 flex h-12 w-12 items-center justify-center rounded-lg">
-                        <Icon className="text-primary h-6 w-6" />
-                      </div>
-                    )}
-                    <h3
-                      className={cn(
-                        locale === "mm"
-                          ? "text-base leading-relaxed"
-                          : "text-xl"
-                      )}
+            {currentTab.services ? (
+              <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                {currentTab.services.map((service, index) => {
+                  const Icon = service.icon
+                  return (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.4, delay: index * 0.1 }}
                     >
-                      {service.key ? tServiceNames(service.key) : service.name}
-                    </h3>
-                    <p
-                      className={cn(
-                        "text-muted-foreground",
-                        locale === "mm"
-                          ? "text-[13px] leading-loose"
-                          : "text-sm leading-relaxed"
-                      )}
-                    >
-                      {service.key
-                        ? tServiceDescriptions(service.key)
-                        : service.description}
-                    </p>
-                  </Card>
-                )
-              })}
-            </div>
-          ) : null}
-        </div>
-      )}
+                      <Card className="flex h-full flex-col space-y-4 p-5 transition-shadow hover:shadow-md">
+                        {Icon && (
+                          <div className="bg-primary/10 flex h-12 w-12 items-center justify-center rounded-lg">
+                            <Icon className="text-primary h-6 w-6" />
+                          </div>
+                        )}
+                        <h3
+                          className={cn(
+                            locale === "mm"
+                              ? "text-base leading-relaxed"
+                              : "text-xl"
+                          )}
+                        >
+                          {service.key
+                            ? tServiceNames(service.key)
+                            : service.name}
+                        </h3>
+                        <p
+                          className={cn(
+                            "text-muted-foreground",
+                            locale === "mm"
+                              ? "text-[13px] leading-loose"
+                              : "text-sm leading-relaxed"
+                          )}
+                        >
+                          {service.key
+                            ? tServiceDescriptions(service.key)
+                            : service.description}
+                        </p>
+                      </Card>
+                    </motion.div>
+                  )
+                })}
+              </div>
+            ) : null}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   )
 }
