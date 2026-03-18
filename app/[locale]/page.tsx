@@ -126,10 +126,10 @@ export default function HomePage() {
           </Container>
 
           {/* Stats Section */}
-          <div className="border-border/30 animate-in fade-in slide-in-from-bottom-8 fill-mode-backwards mt-8 border-t pt-6 delay-700 duration-1000 md:mt-16 md:pt-8 lg:mt-20 lg:pt-10">
+          <div className="border-border/30 mt-8 border-t pt-6 md:mt-16 md:pt-8 lg:mt-20 lg:pt-10">
             <Container>
               <div className="grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6 lg:gap-8">
-                <div className="text-center">
+                <div className="animate-in fade-in slide-in-from-bottom-4 fill-mode-backwards text-center delay-700 duration-1000">
                   <div className="text-foreground mb-1 text-3xl font-light md:mb-2 md:text-4xl lg:text-5xl">
                     {tStats("satisfaction.value")}
                   </div>
@@ -137,7 +137,7 @@ export default function HomePage() {
                     {tStats("satisfaction.label")}
                   </p>
                 </div>
-                <div className="text-center">
+                <div className="animate-in fade-in slide-in-from-bottom-4 fill-mode-backwards text-center delay-800 duration-1000">
                   <div className="text-foreground mb-1 text-3xl font-light md:mb-2 md:text-4xl lg:text-5xl">
                     {tStats("experience.value")}
                   </div>
@@ -145,7 +145,7 @@ export default function HomePage() {
                     {tStats("experience.label")}
                   </p>
                 </div>
-                <div className="text-center">
+                <div className="animate-in fade-in slide-in-from-bottom-4 fill-mode-backwards text-center delay-900 duration-1000">
                   <div className="text-foreground mb-1 text-3xl font-light md:mb-2 md:text-4xl lg:text-5xl">
                     {tStats("businesses.value")}
                   </div>
@@ -153,7 +153,7 @@ export default function HomePage() {
                     {tStats("businesses.label")}
                   </p>
                 </div>
-                <div className="text-center">
+                <div className="animate-in fade-in slide-in-from-bottom-4 fill-mode-backwards text-center delay-1000 duration-1000">
                   <div className="text-foreground mb-1 text-3xl font-light md:mb-2 md:text-4xl lg:text-5xl">
                     {tStats("placements.value")}
                   </div>
