@@ -9,13 +9,14 @@ export function ScrollDown() {
 
   useEffect(() => {
     const toggleVisibility = () => {
-      if (window.scrollY > 300) {
-        setIsVisible(false)
-      } else {
-        setIsVisible(true)
-      }
+      // Hide when near bottom of page
+      const isNearBottom =
+        window.innerHeight + window.scrollY >=
+        document.documentElement.scrollHeight - 100
+      setIsVisible(!isNearBottom)
     }
 
+    toggleVisibility()
     window.addEventListener("scroll", toggleVisibility)
 
     return () => window.removeEventListener("scroll", toggleVisibility)
@@ -23,7 +24,7 @@ export function ScrollDown() {
 
   const scrollDown = () => {
     window.scrollTo({
-      top: window.innerHeight,
+      top: document.documentElement.scrollHeight,
       behavior: "smooth",
     })
   }
@@ -37,7 +38,7 @@ export function ScrollDown() {
           ? "translate-y-0 opacity-100"
           : "pointer-events-none translate-y-16 opacity-0"
       )}
-      aria-label="Scroll down"
+      aria-label="Scroll to bottom"
     >
       <ArrowDown className="h-5 w-5 text-white" />
     </button>
