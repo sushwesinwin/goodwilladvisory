@@ -40,13 +40,13 @@ export default function HomePage() {
               {/* Left: Hero Text */}
               <div className="flex min-h-[240px] flex-col justify-between text-center md:min-h-[280px] md:text-left lg:h-[320px]">
                 <div className="space-y-3 md:space-y-4">
-                  <p className="text-primary text-xs font-bold tracking-widest uppercase">
+                  <p className="text-primary animate-in fade-in slide-in-from-bottom-4 text-xs font-bold tracking-widest uppercase duration-1000">
                     {tHero("tagline")}
                   </p>
                   <div className="space-y-2 md:space-y-3">
                     <h1
                       className={cn(
-                        "font-light tracking-tight text-balance",
+                        "animate-in fade-in slide-in-from-bottom-6 fill-mode-backwards font-light tracking-tight text-balance delay-200 duration-1000",
                         locale === "mm"
                           ? "text-2xl sm:text-3xl md:text-4xl lg:text-5xl"
                           : "text-3xl sm:text-4xl md:text-5xl lg:text-6xl"
@@ -57,13 +57,13 @@ export default function HomePage() {
                         {tHero("titleHighlight")}
                       </span>
                     </h1>
-                    <p className="text-muted-foreground mx-auto max-w-xl text-sm leading-relaxed md:mx-0 md:text-base">
+                    <p className="text-muted-foreground animate-in fade-in slide-in-from-bottom-6 fill-mode-backwards mx-auto max-w-xl text-sm leading-relaxed delay-300 duration-1000 md:mx-0 md:text-base">
                       {tHero("subtitle")}
                     </p>
                   </div>
                 </div>
 
-                <div className="flex flex-col items-center gap-4 sm:flex-row md:items-center">
+                <div className="animate-in fade-in slide-in-from-bottom-8 fill-mode-backwards flex flex-col items-center gap-4 delay-500 duration-1000 sm:flex-row md:items-center">
                   <Button
                     size="lg"
                     render={<Link href="/#services" />}
@@ -126,7 +126,7 @@ export default function HomePage() {
           </Container>
 
           {/* Stats Section */}
-          <div className="border-border/30 mt-8 border-t pt-6 md:mt-16 md:pt-8 lg:mt-20 lg:pt-10">
+          <div className="border-border/30 animate-in fade-in slide-in-from-bottom-8 fill-mode-backwards mt-8 border-t pt-6 delay-700 duration-1000 md:mt-16 md:pt-8 lg:mt-20 lg:pt-10">
             <Container>
               <div className="grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6 lg:gap-8">
                 <div className="text-center">
@@ -178,7 +178,11 @@ export default function HomePage() {
                     : "text-4xl sm:text-5xl lg:text-6xl"
                 )}
               >
-                {tMission("statement")}
+                {tMission.rich("statement", {
+                  nobreak: (chunks) => (
+                    <span className="whitespace-nowrap">{chunks}</span>
+                  ),
+                })}
                 <span className="text-muted-foreground">
                   {tMission("statementHighlight")}
                 </span>
@@ -350,7 +354,12 @@ export default function HomePage() {
                       render={<Link href="/#contact" />}
                       className="group gap-3 rounded-full py-6 pr-2 pl-6 shadow-lg transition-all hover:gap-4 hover:shadow-xl"
                     >
-                      <span className="text-sm font-bold tracking-wide">
+                      <span
+                        className={cn(
+                          "font-bold tracking-wide",
+                          locale === "mm" ? "text-[13px]" : "text-sm"
+                        )}
+                      >
                         {tAbout("getConsultation")}
                       </span>
                       <span className="flex h-7 w-7 items-center justify-center rounded-full bg-white shadow-md transition-all group-hover:translate-x-1 group-hover:shadow-lg">
@@ -478,11 +487,27 @@ export default function HomePage() {
         </section>
 
         {/* Client Carousel Section */}
-        <section className="bg-white">
+        <section id="clients-section" className="bg-white">
           <Container>
             <div className="mb-12 text-center">
-              <h2 className="mb-2 text-2xl sm:text-3xl">{tClients("title")}</h2>
-              <p className="text-muted-foreground">{tClients("subtitle")}</p>
+              <h2
+                className={cn(
+                  "mb-2 font-light tracking-tight text-balance",
+                  locale === "mm"
+                    ? "text-2xl sm:text-3xl lg:text-4xl"
+                    : "text-4xl sm:text-5xl lg:text-6xl"
+                )}
+              >
+                {tClients("title")}
+              </h2>
+              <p
+                className={cn(
+                  "text-muted-foreground",
+                  locale === "mm" ? "text-sm leading-loose" : ""
+                )}
+              >
+                {tClients("subtitle")}
+              </p>
             </div>
             <ClientCarousel />
           </Container>
