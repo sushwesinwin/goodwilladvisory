@@ -7,16 +7,18 @@
   "nav": {
     "services": "Services",
     "about": "About",
-    "contact": "Contact",
-    "openMenu": "Open menu",
-    "closeMenu": "Close menu"
+    "contact": "Contact"
   },
   "hero": {
-    "tagline": "Your Trusted Advisory Partner",
+    "tagline": "Professional advisory services for strategic business growth.",
     "title": "Build & growth with ",
     "titleHighlight": "Goodwill Advisory",
     "subtitle": "Professional HR, Financial Consulting, and Recruitment Solutions",
     "cta": "EXPLORE MORE"
+  },
+  "testimonials": {
+    "title": "What Our Clients Say",
+    "subtitle": "Trusted by businesses and professionals across Myanmar"
   },
   "stats": {
     "satisfaction": {
@@ -60,7 +62,50 @@
     "statementHighlight": "businesses to take control of their finances and achieve their financial goals."
   },
   "services": {
+    "whatWeDo": "WHAT WE DO",
     "title": "Empowering and strengthening your business success",
+    "tabs": {
+      "hr": "HR",
+      "finance": "Finance",
+      "recruitment": "Recruitment"
+    },
+    "tabTitles": {
+      "hr": "People Solutions",
+      "finance": "Finance & Advisory Services",
+      "recruitment": "Career solutions for talent & businesses"
+    },
+    "serviceNames": {
+      "talentManagement": "Talent Management",
+      "hrInfrastructure": "HR Infrastructure & Operations Excellence",
+      "hrTechnology": "HR Technology & Analytics",
+      "compensation": "Compensation & Human Capital Solutions",
+      "organizationalDesign": "Organizational Design & Culture",
+      "performance": "Performance & Development Solutions",
+      "financeDeptSetup": "Finance Department Setup and System Foundation",
+      "monthlyAuditing": "Monthly Auditing & Financial Reporting (After Service Setup)",
+      "monthlyBookkeeping": "Monthly Bookkeeping Service",
+      "budgetingSupport": "Budgeting Support",
+      "externalAuditing": "External Auditing Services",
+      "businessPlan": "Business Plan Preparation and Advisory Service",
+      "taxCompliance": "Tax Calculation and Compliance Services",
+      "jobAcademy": "Job Academy"
+    },
+    "serviceDescriptions": {
+      "talentManagement": "Talent Management provides end-to-end solutions that align employee performance with strategic goals. Our offerings include executive and specialist search, workforce planning and optimization, and employer branding and talent attraction.",
+      "hrInfrastructure": "HR Infrastructure & Operations Excellence strengthens HR foundations to drive operational efficiency, compliance, and people excellence. Our services include HR framework design and implementation, HR department setup and optimization, HR policy development and compliance, employee relations and engagement advisory, HR audit and process improvement, and HR governance and risk management.",
+      "hrTechnology": "HR Technology & Analytics drives HR transformation through data-driven insights and digital innovation. Our services include HR system implementation and optimization, HR automation and digital transformation, and HR metrics and KPI dashboards.",
+      "compensation": "Compensation & Human Capital Solutions aligns rewards, payroll, and people strategies to strengthen talent performance and drive business growth. Our services include total rewards strategy and benchmarking, incentive and recognition programs, job evaluation and role grading, payroll and benefits optimization, and executive compensation advisory.",
+      "organizationalDesign": "Organizational Design & Culture transforms businesses through organizational structures that support strategy and people excellence. Our services include organizational design and transformation, and change management solutions.",
+      "performance": "Performance & Development Solutions optimizes workforce performance through coaching, learning, and development strategies. Our services include performance management frameworks, KPI design and goal setting, appraisal system development, continuous feedback and coaching, leadership and talent development, learning strategy and program design, and executive and management coaching.",
+      "financeDeptSetup": "Finance Department Setup and System Foundation establishes and strengthens financial operations for businesses. Our services include assessment of finance, operations, and staff; presentation and agreement with management; design and development; implementation support; and follow-up with deliverables",
+      "monthlyAuditing": "Monthly Auditing & Financial Reporting (After Service Setup) ensures accurate financial oversight and reporting for businesses. Our services include accounts payable and receivable management, inventory tracking, cash and bank reconciliation, administrative expenses and cost of services management, fixed asset register and depreciation management, and internal auditing with periodic financial reporting.",
+      "monthlyBookkeeping": "Monthly Bookkeeping Service provides accurate and organized financial records for businesses. Our services include transaction recording and categorization, bank and credit card reconciliation, accounts payable and receivable balance checks, and assistance in preparing financial statements for reporting.",
+      "budgetingSupport": "Budgeting Support helps businesses and individuals plan and manage their finances effectively. Our services include income planning, investment planning, tax planning, and expense and estate planning.",
+      "externalAuditing": "External Auditing Services provides independent verification of financial records to ensure accuracy and compliance. Our services include accounts payable and receivable management, inventory tracking, cash and bank reconciliation, administrative expenses and cost of services management, fixed asset register and depreciation management, and external auditing with periodic financial reporting.",
+      "businessPlan": "Business Plan Preparation and Advisory Service helps businesses create comprehensive and strategic plans for growth. Our services include financial report preparation, costing methods, grant-matching breakdown, fixed assets management, costing preparation, and impact summary.",
+      "taxCompliance": "Tax Calculation and Compliance Services ensures accurate tax management and compliance for businesses. Our services include tax report preparation, advisory services, and e-filing support.",
+      "jobAcademy": "Job Academy provides comprehensive career and learning solutions! Our platform is designed to connect job seekers with the right opportunities and help employers find skilled talent. With our user-friendly tools and learning programs, you can advance your career or build a stronger workforce. Trust us to support your growth — we are confident our solutions will exceed your expectations!"
+    },
     "strategicPlanning": {
       "title": "Strategic Planning",
       "description": "We deliver an intuitive and user-friendly interface design that provides effortless interaction. Our interface makes it easy to navigate and use our platform."
@@ -96,6 +141,10 @@
     "contactUs": "Contact Us",
     "learnMore": "Learn More",
     "contactInfo": "Contact Information"
+  },
+  "founders": {
+    "title": "Meet Our Founders",
+    "subtitle": "The visionary leaders behind Goodwill Advisory Group"
   },
   "footer": {
     "companyName": "Goodwill Advisory Group",

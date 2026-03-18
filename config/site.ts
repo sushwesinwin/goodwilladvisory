@@ -17,7 +17,8 @@ export const siteConfig = {
     address:
       "22 A Street (between 58th & 59th Streets), Nawarat Villa, Aungmyethazan Township, Mandalay, Myanmar",
     email: "goodwilladvisory.hr@gmail.com",
-    phone: "09255572225 (Viber)",
+    phone: "+959 967 780041",
+    mapLink: "https://maps.app.goo.gl/bYvcv5psdZiUZbYS6",
   },
   theme: {
     primaryColor: "#4F722E", // Brand olive green

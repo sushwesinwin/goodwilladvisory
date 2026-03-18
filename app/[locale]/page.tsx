@@ -13,15 +13,20 @@ import { HeroSlider } from "@/components/layout/hero-slider"
 import { ScrollToTop } from "@/components/scroll-to-top"
 import { ScrollDown } from "@/components/scroll-down"
 import { WhatWeDoTabs } from "@/components/what-we-do-tabs"
-import { useTranslations } from "next-intl"
+import { TestimonialsCarousel } from "@/components/testimonials-carousel"
+import { useTranslations, useLocale } from "next-intl"
+import { cn } from "@/lib/utils"
 
 export default function HomePage() {
+  const locale = useLocale()
   const tHero = useTranslations("hero")
   const tStats = useTranslations("stats")
   const tAbout = useTranslations("about")
   const tMission = useTranslations("mission")
+  const tServices = useTranslations("services")
   const tClients = useTranslations("clients")
-  const tCta = useTranslations("cta")
+  const tFounders = useTranslations("founders")
+  const tTestimonials = useTranslations("testimonials")
 
   return (
     <>
@@ -29,33 +34,40 @@ export default function HomePage() {
 
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="relative bg-white py-12 md:py-16">
+        <section className="relative bg-white py-6 md:py-10 lg:py-12">
           <Container>
-            <div className="grid items-start gap-8 lg:grid-cols-2 lg:gap-12">
+            <div className="grid items-start gap-6 md:gap-8 lg:grid-cols-2 lg:gap-12">
               {/* Left: Hero Text */}
-              <div className="flex h-[280px] flex-col justify-between lg:h-[320px]">
-                <div className="space-y-8">
-                  <p className="text-primary text-sm font-bold tracking-wider uppercase">
+              <div className="flex min-h-[240px] flex-col justify-between text-center md:min-h-[280px] md:text-left lg:h-[320px]">
+                <div className="space-y-3 md:space-y-4">
+                  <p className="text-primary text-xs font-bold tracking-widest uppercase">
                     {tHero("tagline")}
                   </p>
-                  <div className="space-y-3">
-                    <h1 className="text-4xl font-light tracking-tight text-balance sm:text-5xl lg:text-6xl">
-                      {tHero("title")}
-                      <span className="text-primary font-extralight">
+                  <div className="space-y-2 md:space-y-3">
+                    <h1
+                      className={cn(
+                        "font-light tracking-tight text-balance",
+                        locale === "mm"
+                          ? "text-2xl sm:text-3xl md:text-4xl lg:text-5xl"
+                          : "text-3xl sm:text-4xl md:text-5xl lg:text-6xl"
+                      )}
+                    >
+                      {tHero("title")}{" "}
+                      <span className="text-primary font-light">
                         {tHero("titleHighlight")}
                       </span>
                     </h1>
-                    <p className="text-muted-foreground max-w-xl text-base leading-relaxed font-normal">
+                    <p className="text-muted-foreground mx-auto max-w-xl text-sm leading-relaxed md:mx-0 md:text-base">
                       {tHero("subtitle")}
                     </p>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-6">
+                <div className="flex flex-col items-center gap-4 sm:flex-row md:items-center">
                   <Button
                     size="lg"
                     render={<Link href="/#services" />}
-                    className="group gap-3 rounded-full py-6 pr-2 pl-6 shadow-lg transition-all hover:gap-4 hover:shadow-xl"
+                    className="group cursor-pointer gap-3 rounded-full py-5 pr-2 pl-6 shadow-lg transition-all hover:gap-4 hover:shadow-xl"
                   >
                     <span className="text-sm font-bold tracking-wide">
                       {tHero("cta")}
@@ -66,12 +78,12 @@ export default function HomePage() {
                   </Button>
 
                   {/* Social Icons */}
-                  <div className="flex items-center gap-4">
+                  <div className="flex items-center gap-3">
                     <a
                       href={siteConfig.links.facebook}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-muted-foreground hover:text-primary transition-colors"
+                      className="text-muted-foreground hover:text-primary cursor-pointer transition-colors"
                       aria-label="Facebook"
                     >
                       <Facebook className="h-5 w-5" />
@@ -80,7 +92,7 @@ export default function HomePage() {
                       href={siteConfig.links.linkedin}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-muted-foreground hover:text-primary transition-colors"
+                      className="text-muted-foreground hover:text-primary cursor-pointer transition-colors"
                       aria-label="LinkedIn"
                     >
                       <Linkedin className="h-5 w-5" />
@@ -89,7 +101,7 @@ export default function HomePage() {
                       href={siteConfig.links.tiktok}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-muted-foreground hover:text-primary transition-colors"
+                      className="text-muted-foreground hover:text-primary cursor-pointer transition-colors"
                       aria-label="TikTok"
                     >
                       <svg
@@ -105,8 +117,8 @@ export default function HomePage() {
               </div>
 
               {/* Right: Slider */}
-              <div className="relative h-[280px] w-full lg:h-[320px]">
-                <div className="ring-border/50 relative h-full w-full overflow-hidden rounded-lg shadow-2xl ring-1">
+              <div className="relative h-[240px] w-full md:h-[280px] lg:h-[320px]">
+                <div className="ring-border/50 relative h-full w-full overflow-hidden rounded-xl shadow-2xl ring-1 md:rounded-2xl">
                   <HeroSlider />
                 </div>
               </div>
@@ -114,38 +126,38 @@ export default function HomePage() {
           </Container>
 
           {/* Stats Section */}
-          <div className="mt-12 py-6 md:mt-16 md:py-8">
+          <div className="border-border/30 mt-8 border-t pt-6 md:mt-16 md:pt-8 lg:mt-20 lg:pt-10">
             <Container>
-              <div className="grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6 lg:grid-cols-8">
-                <div className="lg:col-span-2">
-                  <div className="text-foreground mb-2 text-4xl font-normal lg:text-5xl">
+              <div className="grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6 lg:gap-8">
+                <div className="text-center">
+                  <div className="text-foreground mb-1 text-3xl font-light md:mb-2 md:text-4xl lg:text-5xl">
                     {tStats("satisfaction.value")}
                   </div>
-                  <p className="text-primary text-sm font-normal md:text-base">
+                  <p className="text-muted-foreground text-xs leading-tight font-medium md:text-sm">
                     {tStats("satisfaction.label")}
                   </p>
                 </div>
-                <div className="lg:col-span-2">
-                  <div className="text-foreground mb-2 text-4xl font-normal lg:text-5xl">
+                <div className="text-center">
+                  <div className="text-foreground mb-1 text-3xl font-light md:mb-2 md:text-4xl lg:text-5xl">
                     {tStats("experience.value")}
                   </div>
-                  <p className="text-primary text-sm font-normal md:text-base">
+                  <p className="text-muted-foreground text-xs leading-tight font-medium md:text-sm">
                     {tStats("experience.label")}
                   </p>
                 </div>
-                <div className="lg:col-span-2">
-                  <div className="text-foreground mb-2 text-4xl font-normal lg:text-5xl">
+                <div className="text-center">
+                  <div className="text-foreground mb-1 text-3xl font-light md:mb-2 md:text-4xl lg:text-5xl">
                     {tStats("businesses.value")}
                   </div>
-                  <p className="text-primary text-sm font-normal md:text-base">
+                  <p className="text-muted-foreground text-xs leading-tight font-medium md:text-sm">
                     {tStats("businesses.label")}
                   </p>
                 </div>
-                <div className="lg:col-span-2">
-                  <div className="text-foreground mb-2 text-4xl font-normal lg:text-5xl">
+                <div className="text-center">
+                  <div className="text-foreground mb-1 text-3xl font-light md:mb-2 md:text-4xl lg:text-5xl">
                     {tStats("placements.value")}
                   </div>
-                  <p className="text-primary text-sm font-normal md:text-base">
+                  <p className="text-muted-foreground text-xs leading-tight font-medium md:text-sm">
                     {tStats("placements.label")}
                   </p>
                 </div>
@@ -155,16 +167,17 @@ export default function HomePage() {
         </section>
 
         {/* Mission Section */}
-        <section className="py-16 md:py-20">
+        <section className="bg-primary/5 py-12 md:py-16">
           <Container>
             <div className="mx-auto max-w-3xl space-y-6 text-center">
-              <div className="flex items-center justify-center gap-1 text-sm">
-                <span className="text-primary">★★★★★</span>
-                <span className="text-muted-foreground ml-2">
-                  {tMission("rating")}
-                </span>
-              </div>
-              <h2 className="text-4xl font-light tracking-tight text-balance sm:text-5xl lg:text-6xl">
+              <h2
+                className={cn(
+                  "font-light tracking-tight text-balance",
+                  locale === "mm"
+                    ? "text-xl leading-loose sm:text-2xl lg:text-3xl"
+                    : "text-4xl sm:text-5xl lg:text-6xl"
+                )}
+              >
                 {tMission("statement")}
                 <span className="text-muted-foreground">
                   {tMission("statementHighlight")}
@@ -177,7 +190,7 @@ export default function HomePage() {
         {/* About Us Section */}
         <section
           id="about"
-          className="relative overflow-hidden bg-gray-50 pt-8 pb-12 md:pt-10 md:pb-16"
+          className="relative scroll-mt-20 overflow-hidden bg-gray-50 py-16 md:py-20"
         >
           {/* Green Accent Background */}
           <div className="bg-primary/5 absolute top-1/4 right-0 h-96 w-1/3 rounded-l-full blur-3xl" />
@@ -189,7 +202,14 @@ export default function HomePage() {
                 {/* Left: Heading */}
                 <div className="lg:col-span-1">
                   <div className="border-primary mb-4 w-16 border-t-4" />
-                  <h2 className="text-4xl font-light tracking-tight text-balance sm:text-5xl lg:text-6xl">
+                  <h2
+                    className={cn(
+                      "font-light tracking-tight text-balance",
+                      locale === "mm"
+                        ? "text-2xl sm:text-3xl lg:text-4xl"
+                        : "text-4xl sm:text-5xl lg:text-6xl"
+                    )}
+                  >
                     {tAbout("title")}
                   </h2>
                 </div>
@@ -197,13 +217,7 @@ export default function HomePage() {
                 {/* Right: Intro */}
                 <div className="lg:col-span-1">
                   <p className="text-muted-foreground text-sm leading-relaxed font-normal">
-                    We provide{" "}
-                    <span className="text-foreground font-bold">
-                      strategic HR, financial consulting, and recruitment
-                      services
-                    </span>{" "}
-                    to help small and medium-sized enterprises (SMEs) grow and
-                    succeed.
+                    {tAbout("intro")}
                   </p>
                 </div>
               </div>
@@ -212,10 +226,24 @@ export default function HomePage() {
               <div className="mb-16 grid gap-8 lg:grid-cols-2 lg:gap-16">
                 {/* Left: History */}
                 <div className="space-y-4 lg:col-span-1">
-                  <p className="text-muted-foreground text-base leading-relaxed font-normal">
+                  <p
+                    className={cn(
+                      "text-muted-foreground font-normal",
+                      locale === "mm"
+                        ? "text-sm leading-loose"
+                        : "text-base leading-relaxed"
+                    )}
+                  >
                     {tAbout("history.paragraph1")}
                   </p>
-                  <p className="text-muted-foreground text-base leading-relaxed font-normal">
+                  <p
+                    className={cn(
+                      "text-muted-foreground font-normal",
+                      locale === "mm"
+                        ? "text-sm leading-loose"
+                        : "text-base leading-relaxed"
+                    )}
+                  >
                     {tAbout("history.paragraph2")}
                   </p>
                 </div>
@@ -231,8 +259,8 @@ export default function HomePage() {
                         fill
                         className="object-cover transition-transform duration-500 group-hover:scale-105"
                       />
-                      <div className="absolute bottom-6 left-6 rounded bg-white px-6 py-3 shadow-lg">
-                        <p className="text-foreground text-base font-bold md:text-lg">
+                      <div className="absolute bottom-6 left-6 rounded-full bg-white px-6 py-2.5 shadow-lg">
+                        <p className="text-foreground text-sm font-semibold md:text-base">
                           11 years of experience
                         </p>
                       </div>
@@ -244,18 +272,18 @@ export default function HomePage() {
               {/* Content Grid */}
               <div className="grid gap-8 lg:grid-cols-2 lg:gap-16">
                 {/* Left Column: Slogan Quote */}
-                <div className="flex items-start justify-center pt-20 lg:col-span-1">
+                <div className="flex items-center justify-center py-12 md:py-16 lg:col-span-1 lg:py-0">
                   {/* Slogan Quote */}
                   <div className="relative flex items-center justify-center">
-                    <div className="relative">
+                    <div className="bg-primary/5 relative rounded-2xl p-8 md:bg-transparent md:p-0">
                       <Image
                         src="/quote.svg"
                         alt=""
                         width={48}
                         height={48}
-                        className="text-primary/25 absolute -top-4 -left-6 h-10 w-10 opacity-50 md:-top-6 md:-left-8 md:h-12 md:w-12"
+                        className="text-primary/25 absolute -top-2 -left-2 h-10 w-10 opacity-70 md:-top-6 md:-left-8 md:h-12 md:w-12 md:opacity-50"
                       />
-                      <blockquote className="px-4 md:px-6">
+                      <blockquote className="px-6 md:px-6">
                         <p className="text-primary text-center font-serif text-3xl leading-tight italic md:text-4xl lg:text-5xl">
                           {tAbout("slogan.line1")} <br />{" "}
                           {tAbout("slogan.line2")}
@@ -266,36 +294,64 @@ export default function HomePage() {
                         alt=""
                         width={48}
                         height={48}
-                        className="text-primary/25 absolute -right-6 -bottom-4 h-10 w-10 rotate-180 opacity-50 md:-right-8 md:-bottom-6 md:h-12 md:w-12"
+                        className="text-primary/25 absolute -right-2 -bottom-2 h-10 w-10 rotate-180 opacity-70 md:-right-8 md:-bottom-6 md:h-12 md:w-12 md:opacity-50"
                       />
                     </div>
                   </div>
                 </div>
 
                 {/* Right Column: Approach */}
-                <div className="space-y-6 lg:col-span-1">
-                  <h3 className="text-4xl font-light tracking-tight text-balance sm:text-5xl lg:text-6xl">
+                <div className="lg:col-span-1">
+                  <h3
+                    className={cn(
+                      "mb-12 font-light tracking-tight text-balance",
+                      locale === "mm"
+                        ? "text-2xl sm:text-3xl lg:text-4xl"
+                        : "text-4xl sm:text-5xl lg:text-6xl"
+                    )}
+                  >
                     {tAbout("approach.title")}
                   </h3>
                   <div className="space-y-4">
-                    <p className="text-muted-foreground text-sm leading-relaxed font-normal">
+                    <p
+                      className={cn(
+                        "text-muted-foreground font-normal",
+                        locale === "mm"
+                          ? "text-sm leading-loose"
+                          : "text-base leading-relaxed"
+                      )}
+                    >
                       {tAbout("approach.paragraph1")}
                     </p>
-                    <p className="text-muted-foreground text-sm leading-relaxed font-normal">
+                    <p
+                      className={cn(
+                        "text-muted-foreground font-normal",
+                        locale === "mm"
+                          ? "text-sm leading-loose"
+                          : "text-base leading-relaxed"
+                      )}
+                    >
                       {tAbout("approach.paragraph2")}
                     </p>
-                    <p className="text-muted-foreground text-sm leading-relaxed font-normal">
+                    <p
+                      className={cn(
+                        "text-muted-foreground font-normal",
+                        locale === "mm"
+                          ? "text-sm leading-loose"
+                          : "text-base leading-relaxed"
+                      )}
+                    >
                       {tAbout("closing")}
                     </p>
                   </div>
-                  <div>
+                  <div className="mt-8">
                     <Button
                       size="lg"
                       render={<Link href="/#contact" />}
                       className="group gap-3 rounded-full py-6 pr-2 pl-6 shadow-lg transition-all hover:gap-4 hover:shadow-xl"
                     >
                       <span className="text-sm font-bold tracking-wide">
-                        GET CONSULTATION
+                        {tAbout("getConsultation")}
                       </span>
                       <span className="flex h-7 w-7 items-center justify-center rounded-full bg-white shadow-md transition-all group-hover:translate-x-1 group-hover:shadow-lg">
                         <ArrowRight className="text-primary h-3.5 w-3.5" />
@@ -309,13 +365,28 @@ export default function HomePage() {
         </section>
 
         {/* What We Do Section */}
-        <section className="py-16 md:py-20">
+        <section
+          id="services"
+          className="bg-primary/5 scroll-mt-20 py-16 md:py-20"
+        >
           <Container>
             <div className="mx-auto max-w-6xl">
+              {/* Hidden anchor points for navigation */}
+              <div id="what-we-do-hr" className="scroll-mt-20" />
+              <div id="what-we-do-finance" className="scroll-mt-20" />
+              <div id="what-we-do-recruitment" className="scroll-mt-20" />
+
               <div className="mb-12 text-center">
                 <div className="border-primary mx-auto mb-8 w-16 border-t-4" />
-                <h2 className="text-4xl font-light tracking-tight sm:text-5xl lg:text-6xl">
-                  What We Do
+                <h2
+                  className={cn(
+                    "font-light tracking-tight text-balance",
+                    locale === "mm"
+                      ? "text-2xl sm:text-3xl lg:text-4xl"
+                      : "text-4xl sm:text-5xl lg:text-6xl"
+                  )}
+                >
+                  {tServices("whatWeDo")}
                 </h2>
               </div>
               <WhatWeDoTabs />
@@ -324,16 +395,23 @@ export default function HomePage() {
         </section>
 
         {/* Founders Section */}
-        <section className="bg-gray-50 py-16 md:py-20">
+        <section className="bg-gray-50 py-5 md:py-10">
           <Container>
             <div className="mx-auto max-w-6xl">
               <div className="mb-12 text-center">
                 <div className="border-primary mx-auto mb-8 w-16 border-t-4" />
-                <h2 className="mb-4 text-4xl font-light tracking-tight sm:text-5xl lg:text-6xl">
-                  Meet Our Founders
+                <h2
+                  className={cn(
+                    "mb-4 font-light tracking-tight text-balance",
+                    locale === "mm"
+                      ? "text-2xl sm:text-3xl lg:text-4xl"
+                      : "text-4xl sm:text-5xl lg:text-6xl"
+                  )}
+                >
+                  {tFounders("title")}
                 </h2>
                 <p className="text-muted-foreground text-base">
-                  The visionary leaders behind Goodwill Advisory Group
+                  {tFounders("subtitle")}
                 </p>
               </div>
               <div className="mx-auto grid max-w-3xl gap-6 md:grid-cols-2">
@@ -374,71 +452,39 @@ export default function HomePage() {
           </Container>
         </section>
 
-        {/* Client Carousel Section */}
-        <section className="bg-white py-12 md:py-16">
+        {/* Testimonials Section */}
+        <section className="bg-primary/5 py-16 md:py-20">
           <Container>
-            <div className="mb-8 text-center">
+            <div className="mx-auto max-w-6xl">
+              <div className="mb-12 text-center">
+                <div className="border-primary mx-auto mb-8 w-16 border-t-4" />
+                <h2
+                  className={cn(
+                    "mb-4 font-light tracking-tight text-balance",
+                    locale === "mm"
+                      ? "text-2xl sm:text-3xl lg:text-4xl"
+                      : "text-4xl sm:text-5xl lg:text-6xl"
+                  )}
+                >
+                  {tTestimonials("title")}
+                </h2>
+                <p className="text-muted-foreground text-base">
+                  {tTestimonials("subtitle")}
+                </p>
+              </div>
+              <TestimonialsCarousel />
+            </div>
+          </Container>
+        </section>
+
+        {/* Client Carousel Section */}
+        <section className="bg-white">
+          <Container>
+            <div className="mb-12 text-center">
               <h2 className="mb-2 text-2xl sm:text-3xl">{tClients("title")}</h2>
               <p className="text-muted-foreground">{tClients("subtitle")}</p>
             </div>
             <ClientCarousel />
-          </Container>
-        </section>
-
-        {/* CTA Section */}
-        <section id="contact" className="py-16 md:py-20">
-          <Container>
-            <div className="bg-primary/5 rounded-2xl p-8 text-center md:p-12">
-              <h2 className="mb-4 text-3xl">{tCta("title")}</h2>
-              <p className="text-muted-foreground mx-auto mb-8 max-w-2xl">
-                {tCta("description")}
-              </p>
-              <div className="flex flex-col justify-center gap-3 sm:flex-row sm:gap-4">
-                <Button size="lg" render={<Link href="/#contact" />}>
-                  {tCta("contactUs")}
-                </Button>
-                <Button
-                  variant="outline"
-                  size="lg"
-                  render={<Link href="/#services" />}
-                >
-                  {tCta("learnMore")}
-                </Button>
-              </div>
-              <div className="border-border/50 mt-8 border-t pt-8">
-                <p className="text-muted-foreground mb-2 text-sm font-medium">
-                  {tCta("contactInfo")}
-                </p>
-                <p className="mb-1 text-sm">
-                  <a
-                    href={`mailto:${siteConfig.contact.email}`}
-                    className="hover:text-primary transition-colors"
-                  >
-                    {siteConfig.contact.email}
-                  </a>
-                </p>
-                <p className="mb-1 text-sm">
-                  <a
-                    href={`tel:${siteConfig.contact.phone.split(" ")[0]}`}
-                    className="hover:text-primary transition-colors"
-                  >
-                    {siteConfig.contact.phone}
-                  </a>
-                </p>
-                <p className="text-muted-foreground mx-auto max-w-xs text-sm">
-                  <a
-                    href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-                      siteConfig.contact.address
-                    )}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:text-primary transition-colors"
-                  >
-                    {siteConfig.contact.address}
-                  </a>
-                </p>
-              </div>
-            </div>
           </Container>
         </section>
       </main>
