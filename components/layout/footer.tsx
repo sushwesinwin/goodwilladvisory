@@ -117,9 +117,9 @@ export function Footer() {
                   <Image
                     src="/logo1.png"
                     alt="Goodwill Advisory"
-                    width={180}
-                    height={72}
-                    className="h-8 w-auto brightness-0 invert md:h-10"
+                    width={200}
+                    height={80}
+                    className="h-10 w-auto object-contain brightness-0 invert md:h-12"
                   />
                 </Link>
                 <p
@@ -150,7 +150,7 @@ export function Footer() {
                   <li>
                     <button
                       onClick={() => handleNavClick("about")}
-                      className="group hover:text-primary flex cursor-pointer items-center gap-2 text-gray-400 transition-colors"
+                      className="group hover:text-primary flex cursor-pointer items-center gap-2 text-gray-400 transition-all duration-300 hover:pl-2"
                     >
                       <span className="opacity-0 transition-opacity group-hover:opacity-100">
                         ▸
@@ -169,7 +169,7 @@ export function Footer() {
                   <li>
                     <button
                       onClick={() => handleNavClick("services")}
-                      className="group hover:text-primary flex cursor-pointer items-center gap-2 text-gray-400 transition-colors"
+                      className="group hover:text-primary flex cursor-pointer items-center gap-2 text-gray-400 transition-all duration-300 hover:pl-2"
                     >
                       <span className="opacity-0 transition-opacity group-hover:opacity-100">
                         ▸
@@ -188,7 +188,7 @@ export function Footer() {
                   <li>
                     <button
                       onClick={() => handleNavClick("contact")}
-                      className="group hover:text-primary flex cursor-pointer items-center gap-2 text-gray-400 transition-colors"
+                      className="group hover:text-primary flex cursor-pointer items-center gap-2 text-gray-400 transition-all duration-300 hover:pl-2"
                     >
                       <span className="opacity-0 transition-opacity group-hover:opacity-100">
                         ▸
@@ -223,7 +223,7 @@ export function Footer() {
                   <li>
                     <button
                       onClick={() => handleNavClick("what-we-do-hr")}
-                      className="group hover:text-primary flex cursor-pointer items-center gap-2 text-gray-400 transition-colors"
+                      className="group hover:text-primary flex cursor-pointer items-center gap-2 text-gray-400 transition-all duration-300 hover:pl-2"
                     >
                       <span className="opacity-0 transition-opacity group-hover:opacity-100">
                         ▸
@@ -242,7 +242,7 @@ export function Footer() {
                   <li>
                     <button
                       onClick={() => handleNavClick("what-we-do-finance")}
-                      className="group hover:text-primary flex cursor-pointer items-center gap-2 text-gray-400 transition-colors"
+                      className="group hover:text-primary flex cursor-pointer items-center gap-2 text-gray-400 transition-all duration-300 hover:pl-2"
                     >
                       <span className="opacity-0 transition-opacity group-hover:opacity-100">
                         ▸
@@ -261,7 +261,7 @@ export function Footer() {
                   <li>
                     <button
                       onClick={() => handleNavClick("what-we-do-recruitment")}
-                      className="group hover:text-primary flex cursor-pointer items-center gap-2 text-gray-400 transition-colors"
+                      className="group hover:text-primary flex cursor-pointer items-center gap-2 text-gray-400 transition-all duration-300 hover:pl-2"
                     >
                       <span className="opacity-0 transition-opacity group-hover:opacity-100">
                         ▸
@@ -296,7 +296,7 @@ export function Footer() {
                   <li>
                     <a
                       href={`mailto:${siteConfig.contact.email}`}
-                      className="group hover:text-primary flex cursor-pointer items-center gap-2 text-gray-400 transition-colors"
+                      className="group hover:text-primary flex cursor-pointer items-center gap-2 text-gray-400 transition-all duration-300 hover:pl-2"
                     >
                       <span className="opacity-0 transition-opacity group-hover:opacity-100">
                         ▸
@@ -315,7 +315,7 @@ export function Footer() {
                   <li>
                     <a
                       href={`tel:${siteConfig.contact.phone}`}
-                      className="group hover:text-primary flex cursor-pointer items-center gap-2 text-gray-400 transition-colors"
+                      className="group hover:text-primary flex cursor-pointer items-center gap-2 text-gray-400 transition-all duration-300 hover:pl-2"
                     >
                       <span className="opacity-0 transition-opacity group-hover:opacity-100">
                         ▸
@@ -336,7 +336,7 @@ export function Footer() {
                       href={siteConfig.contact.mapLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group hover:text-primary flex cursor-pointer items-start gap-2 text-left text-gray-400 transition-colors"
+                      className="group hover:text-primary flex cursor-pointer items-start gap-2 text-left text-gray-400 transition-all duration-300 hover:pl-2"
                     >
                       <span className="opacity-0 transition-opacity group-hover:opacity-100">
                         ▸

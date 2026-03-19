@@ -145,6 +145,9 @@
   .animate-infinite-scroll-fast {
     animation: infinite-scroll 25s linear infinite;
   }
+  .animate-infinite-scroll-mobile-fast {
+    animation: infinite-scroll 8s linear infinite;
+  }
 }
 
 @keyframes infinite-scroll {

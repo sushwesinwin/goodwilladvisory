@@ -6,12 +6,31 @@ import { Container } from "./container"
 import { LanguageSwitcher } from "@/components/language-switcher"
 import { Menu, X, ChevronDown } from "lucide-react"
 import { useState, useEffect, useRef } from "react"
+import { motion, AnimatePresence } from "framer-motion"
 import { cn } from "@/lib/utils"
 
 export function Header() {
   const t = useTranslations("nav")
+  const tServices = useTranslations("servicesDropdown")
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [servicesOpen, setServicesOpen] = useState(false)
+  const [hoverTimeout, setHoverTimeout] = useState<NodeJS.Timeout | null>(null)
+
+  const handleMouseEnter = () => {
+    if (window.innerWidth >= 768) {
+      if (hoverTimeout) clearTimeout(hoverTimeout)
+      setServicesOpen(true)
+    }
+  }
+
+  const handleMouseLeave = () => {
+    if (window.innerWidth >= 768) {
+      const timeout = setTimeout(() => {
+        setServicesOpen(false)
+      }, 150)
+      setHoverTimeout(timeout)
+    }
+  }
   const dropdownRef = useRef<HTMLDivElement>(null)
   const mobileServicesRef = useRef<HTMLDivElement>(null)
 
@@ -117,10 +136,18 @@ export function Header() {
                 {t("about")}
               </button>
 
-              {/* Services Dropdown */}
-              <div className="relative" ref={dropdownRef}>
+              <div
+                className="relative"
+                ref={dropdownRef}
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+              >
                 <button
-                  onClick={() => setServicesOpen(!servicesOpen)}
+                  onClick={() => {
+                    if (window.innerWidth < 768) {
+                      setServicesOpen(!servicesOpen)
+                    }
+                  }}
                   className="hover:text-primary flex cursor-pointer items-center gap-1 text-sm font-bold text-gray-500 transition-colors"
                 >
                   {t("services")}
@@ -132,47 +159,57 @@ export function Header() {
                   />
                 </button>
 
-                {servicesOpen && (
-                  <div className="absolute top-full left-0 mt-2 w-80 rounded-lg border border-gray-200 bg-white shadow-lg">
-                    <div className="p-2">
-                      <button
-                        onClick={() => handleServiceClick("what-we-do-hr")}
-                        className="hover:bg-primary/5 group block w-full cursor-pointer rounded-lg p-4 text-left transition-colors"
-                      >
-                        <div className="group-hover:text-primary mb-1 text-sm font-bold text-gray-900">
-                          People Solutions
-                        </div>
-                        <div className="text-muted-foreground text-xs">
-                          Comprehensive HR consulting services
-                        </div>
-                      </button>
-                      <button
-                        onClick={() => handleServiceClick("what-we-do-finance")}
-                        className="hover:bg-primary/5 group block w-full cursor-pointer rounded-lg p-4 text-left transition-colors"
-                      >
-                        <div className="group-hover:text-primary mb-1 text-sm font-bold text-gray-900">
-                          Finance & Advisory Services
-                        </div>
-                        <div className="text-muted-foreground text-xs">
-                          Professional financial consulting
-                        </div>
-                      </button>
-                      <button
-                        onClick={() =>
-                          handleServiceClick("what-we-do-recruitment")
-                        }
-                        className="hover:bg-primary/5 group block w-full cursor-pointer rounded-lg p-4 text-left transition-colors"
-                      >
-                        <div className="group-hover:text-primary mb-1 text-sm font-bold text-gray-900">
-                          Career Solutions
-                        </div>
-                        <div className="text-muted-foreground text-xs">
-                          Recruitment and job placement services
-                        </div>
-                      </button>
-                    </div>
-                  </div>
-                )}
+                <AnimatePresence>
+                  {servicesOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                      transition={{ duration: 0.2 }}
+                      className="absolute top-full left-0 mt-2 w-max max-w-[calc(100vw-4rem)] min-w-[300px] overflow-hidden rounded-lg border border-gray-200 bg-white shadow-lg"
+                    >
+                      <div className="p-2">
+                        <button
+                          onClick={() => handleServiceClick("what-we-do-hr")}
+                          className="hover:bg-primary/10 group block w-full cursor-pointer rounded-lg p-4 text-left transition-all duration-200 hover:pl-6"
+                        >
+                          <div className="group-hover:text-primary mb-1 text-sm font-bold text-gray-900 transition-colors">
+                            {tServices("hr.title")}
+                          </div>
+                          <div className="text-muted-foreground text-xs transition-colors group-hover:text-gray-600">
+                            {tServices("hr.description")}
+                          </div>
+                        </button>
+                        <button
+                          onClick={() =>
+                            handleServiceClick("what-we-do-finance")
+                          }
+                          className="hover:bg-primary/10 group block w-full cursor-pointer rounded-lg p-4 text-left transition-all duration-200 hover:pl-6"
+                        >
+                          <div className="group-hover:text-primary mb-1 text-sm font-bold text-gray-900 transition-colors">
+                            {tServices("finance.title")}
+                          </div>
+                          <div className="text-muted-foreground text-xs transition-colors group-hover:text-gray-600">
+                            {tServices("finance.description")}
+                          </div>
+                        </button>
+                        <button
+                          onClick={() =>
+                            handleServiceClick("what-we-do-recruitment")
+                          }
+                          className="hover:bg-primary/10 group block w-full cursor-pointer rounded-lg p-4 text-left transition-all duration-200 hover:pl-6"
+                        >
+                          <div className="group-hover:text-primary mb-1 text-sm font-bold text-gray-900 transition-colors">
+                            {tServices("recruitment.title")}
+                          </div>
+                          <div className="text-muted-foreground text-xs transition-colors group-hover:text-gray-600">
+                            {tServices("recruitment.description")}
+                          </div>
+                        </button>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
 
               <button
@@ -192,9 +229,9 @@ export function Header() {
             <Image
               src="/logo1.png"
               alt="Goodwill Advisory"
-              width={280}
-              height={112}
-              className="h-[50px] w-auto object-contain"
+              width={250}
+              height={100}
+              className="h-10 w-auto object-contain md:h-14"
               priority
             />
           </button>
@@ -230,55 +267,63 @@ export function Header() {
                     )}
                   />
                 </button>
-                {servicesOpen && (
-                  <div className="mt-2 ml-2 space-y-1 rounded-lg bg-white/80 p-2">
-                    <button
-                      onClick={() => {
-                        handleServiceClick("what-we-do-hr")
-                        setMobileMenuOpen(false)
-                        sessionStorage.removeItem("mobileMenuOpen")
-                      }}
-                      className="hover:bg-primary/5 hover:text-primary block w-full cursor-pointer rounded-md px-4 py-2.5 text-left text-sm font-medium text-gray-600 transition-all"
+                <AnimatePresence>
+                  {servicesOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="mt-2 ml-2 space-y-1 overflow-hidden rounded-lg bg-white/80 p-2"
                     >
-                      <div className="font-semibold text-gray-700">
-                        People Solutions
-                      </div>
-                      <div className="text-xs text-gray-500">
-                        HR consulting services
-                      </div>
-                    </button>
-                    <button
-                      onClick={() => {
-                        handleServiceClick("what-we-do-finance")
-                        setMobileMenuOpen(false)
-                        sessionStorage.removeItem("mobileMenuOpen")
-                      }}
-                      className="hover:bg-primary/5 hover:text-primary block w-full cursor-pointer rounded-md px-4 py-2.5 text-left text-sm font-medium text-gray-600 transition-all"
-                    >
-                      <div className="font-semibold text-gray-700">
-                        Finance & Advisory Services
-                      </div>
-                      <div className="text-xs text-gray-500">
-                        Financial consulting
-                      </div>
-                    </button>
-                    <button
-                      onClick={() => {
-                        handleServiceClick("what-we-do-recruitment")
-                        setMobileMenuOpen(false)
-                        sessionStorage.removeItem("mobileMenuOpen")
-                      }}
-                      className="hover:bg-primary/5 hover:text-primary block w-full cursor-pointer rounded-md px-4 py-2.5 text-left text-sm font-medium text-gray-600 transition-all"
-                    >
-                      <div className="font-semibold text-gray-700">
-                        Career Solutions
-                      </div>
-                      <div className="text-xs text-gray-500">
-                        Recruitment services
-                      </div>
-                    </button>
-                  </div>
-                )}
+                      <button
+                        onClick={() => {
+                          handleServiceClick("what-we-do-hr")
+                          setMobileMenuOpen(false)
+                          sessionStorage.removeItem("mobileMenuOpen")
+                        }}
+                        className="hover:bg-primary/10 hover:text-primary block w-full cursor-pointer rounded-md px-4 py-2.5 text-left text-sm font-medium text-gray-600 transition-all duration-200 hover:pl-6"
+                      >
+                        <div className="font-semibold text-gray-700">
+                          {tServices("hr.title")}
+                        </div>
+                        <div className="text-xs text-gray-500">
+                          {tServices("hr.description")}
+                        </div>
+                      </button>
+                      <button
+                        onClick={() => {
+                          handleServiceClick("what-we-do-finance")
+                          setMobileMenuOpen(false)
+                          sessionStorage.removeItem("mobileMenuOpen")
+                        }}
+                        className="hover:bg-primary/10 hover:text-primary block w-full cursor-pointer rounded-md px-4 py-2.5 text-left text-sm font-medium text-gray-600 transition-all duration-200 hover:pl-6"
+                      >
+                        <div className="font-semibold text-gray-700">
+                          {tServices("finance.title")}
+                        </div>
+                        <div className="text-xs text-gray-500">
+                          {tServices("finance.description")}
+                        </div>
+                      </button>
+                      <button
+                        onClick={() => {
+                          handleServiceClick("what-we-do-recruitment")
+                          setMobileMenuOpen(false)
+                          sessionStorage.removeItem("mobileMenuOpen")
+                        }}
+                        className="hover:bg-primary/10 hover:text-primary block w-full cursor-pointer rounded-md px-4 py-2.5 text-left text-sm font-medium text-gray-600 transition-all duration-200 hover:pl-6"
+                      >
+                        <div className="font-semibold text-gray-700">
+                          {tServices("recruitment.title")}
+                        </div>
+                        <div className="text-xs text-gray-500">
+                          {tServices("recruitment.description")}
+                        </div>
+                      </button>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
 
               <button

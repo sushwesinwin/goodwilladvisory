@@ -37,9 +37,9 @@ export default function HomePage() {
 
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="relative bg-white py-6 md:py-10 lg:py-12">
+        <section className="relative bg-white py-20 md:py-28 lg:py-36">
           <Container>
-            <div className="grid items-start gap-6 md:gap-8 lg:grid-cols-2 lg:gap-12">
+            <div className="grid items-center gap-6 md:gap-8 lg:grid-cols-2 lg:gap-12">
               {/* Left: Hero Text */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -344,7 +344,7 @@ export default function HomePage() {
               </div>
 
               {/* Content Grid */}
-              <div className="grid gap-8 lg:grid-cols-2 lg:gap-16">
+              <div className="grid gap-8 lg:grid-cols-2 lg:gap-24">
                 {/* Left Column: Slogan Quote */}
                 <div className="flex items-center justify-center py-12 md:py-16 lg:col-span-1 lg:py-0">
                   {/* Slogan Quote */}
@@ -486,7 +486,7 @@ export default function HomePage() {
         </section>
 
         {/* Founders Section */}
-        <section className="bg-gray-50 py-5 md:py-10">
+        <section className="overflow-x-clip bg-gray-50 py-5 md:py-10">
           <Container>
             <div className="mx-auto max-w-6xl">
               <motion.div
@@ -513,10 +513,10 @@ export default function HomePage() {
               </motion.div>
               <div className="mx-auto grid max-w-3xl gap-6 md:grid-cols-2">
                 <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.8, delay: 0.2 }}
+                  initial={{ opacity: 0, x: -80 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{ duration: 0.8, delay: 0.1 }}
                   className="text-center"
                 >
                   <div className="ring-border/50 relative mx-auto mb-6 aspect-square max-w-xs overflow-hidden rounded-lg shadow-xl ring-1">
@@ -535,10 +535,10 @@ export default function HomePage() {
                   </p>
                 </motion.div>
                 <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.8, delay: 0.4 }}
+                  initial={{ opacity: 0, x: 80 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{ duration: 0.8, delay: 0.2 }}
                   className="text-center"
                 >
                   <div className="ring-border/50 relative mx-auto mb-6 aspect-square max-w-xs overflow-hidden rounded-lg shadow-xl ring-1">

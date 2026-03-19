@@ -19,9 +19,25 @@ import {
   Lightbulb,
   Receipt,
   Briefcase,
+  type LucideIcon,
 } from "lucide-react"
 
-const tabs = [
+interface Service {
+  key: string
+  name: string
+  description: string
+  icon: LucideIcon
+  badge?: boolean
+}
+
+interface Tab {
+  id: string
+  label: string
+  title: string
+  services: Service[]
+}
+
+const tabs: Tab[] = [
   {
     id: "hr",
     label: "HR",
@@ -138,6 +154,7 @@ const tabs = [
         description:
           "Job Academy provides comprehensive career and learning solutions! Our platform is designed to connect job seekers with the right opportunities and help employers find skilled talent. With our user-friendly tools and learning programs, you can advance your career or build a stronger workforce. Trust us to support your growth — we are confident our solutions will exceed your expectations!",
         icon: Briefcase,
+        badge: true,
       },
     ],
   },
@@ -151,6 +168,7 @@ export function WhatWeDoTabs() {
   const tTitles = useTranslations("services.tabTitles")
   const tServiceNames = useTranslations("services.serviceNames")
   const tServiceDescriptions = useTranslations("services.serviceDescriptions")
+  const tCommon = useTranslations("common")
   const [activeTab, setActiveTab] = useState("hr")
 
   useEffect(() => {
@@ -175,13 +193,16 @@ export function WhatWeDoTabs() {
   return (
     <div className="space-y-8">
       {/* Tabs */}
-      <div className="border-border flex justify-center gap-4 border-b">
+      <div className="border-border scrollbar-none flex justify-start gap-4 overflow-x-auto border-b whitespace-nowrap md:justify-center md:gap-8">
         {tabs.map((tab) => (
           <button
             key={tab.id}
             onClick={() => setActiveTab(tab.id)}
             className={cn(
-              "pb-4 text-base font-medium transition-colors md:text-lg",
+              "pb-4 transition-colors",
+              locale === "mm"
+                ? "text-xs leading-loose md:text-lg md:font-medium"
+                : "text-base font-medium md:text-lg",
               activeTab === tab.id
                 ? "border-primary text-foreground/80 border-b-2"
                 : "text-muted-foreground/60 hover:text-muted-foreground"
@@ -224,11 +245,18 @@ export function WhatWeDoTabs() {
                       transition={{ duration: 0.4, delay: index * 0.1 }}
                     >
                       <Card className="flex h-full flex-col space-y-4 p-5 transition-shadow hover:shadow-md">
-                        {Icon && (
-                          <div className="bg-primary/10 flex h-12 w-12 items-center justify-center rounded-lg">
-                            <Icon className="text-primary h-6 w-6" />
-                          </div>
-                        )}
+                        <div className="flex items-center justify-between">
+                          {Icon && (
+                            <div className="bg-primary/10 flex h-12 w-12 items-center justify-center rounded-lg">
+                              <Icon className="text-primary h-6 w-6" />
+                            </div>
+                          )}
+                          {service.badge && (
+                            <div className="bg-primary rounded-full px-3 py-1 text-[10px] font-bold tracking-wider text-white uppercase">
+                              {tCommon("hiring")}
+                            </div>
+                          )}
+                        </div>
                         <h3
                           className={cn(
                             locale === "mm"

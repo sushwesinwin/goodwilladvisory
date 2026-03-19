@@ -182,7 +182,22 @@
   },
   "common": {
     "loading": "Loading...",
+    "hiring": "HIRING",
     "switchLanguage": "Switch language",
     "currentLanguage": "Current language"
+  },
+  "servicesDropdown": {
+    "hr": {
+      "title": "People Solutions",
+      "description": "Comprehensive HR consulting services"
+    },
+    "finance": {
+      "title": "Finance & Advisory Services",
+      "description": "Professional financial consulting"
+    },
+    "recruitment": {
+      "title": "Career Solutions",
+      "description": "Recruitment and job placement services"
+    }
   }
 }

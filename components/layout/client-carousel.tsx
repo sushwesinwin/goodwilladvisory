@@ -52,9 +52,9 @@ const clients = [
 export function ClientCarousel() {
   return (
     <div className="relative w-full overflow-hidden py-12">
-      <div className="animate-infinite-scroll-fast flex gap-8">
+      <div className="animate-infinite-scroll-mobile-fast md:animate-infinite-scroll-fast flex gap-8">
         {clients.concat(clients).map((client, index) => (
-          <div key={index} className="flex-shrink-0">
+          <div key={index} className="shrink-0">
             <div className="relative h-20 w-32 rounded-lg bg-white p-2 shadow-sm">
               <Image
                 src={`/client logo/${client}`}
