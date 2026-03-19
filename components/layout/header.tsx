@@ -173,10 +173,10 @@ export function Header() {
                           onClick={() => handleServiceClick("what-we-do-hr")}
                           className="hover:bg-primary/10 group block w-full cursor-pointer rounded-lg p-4 text-left transition-all duration-200 hover:pl-6"
                         >
-                          <div className="group-hover:text-primary mb-1 text-sm font-bold text-gray-900 transition-colors">
+                          <div className="group-hover:text-primary mb-2 text-[13px] font-bold text-gray-900 transition-colors md:text-sm">
                             {tServices("hr.title")}
                           </div>
-                          <div className="text-muted-foreground text-xs transition-colors group-hover:text-gray-600">
+                          <div className="text-xs font-normal text-gray-500 transition-colors group-hover:text-gray-700">
                             {tServices("hr.description")}
                           </div>
                         </button>
@@ -186,10 +186,10 @@ export function Header() {
                           }
                           className="hover:bg-primary/10 group block w-full cursor-pointer rounded-lg p-4 text-left transition-all duration-200 hover:pl-6"
                         >
-                          <div className="group-hover:text-primary mb-1 text-sm font-bold text-gray-900 transition-colors">
+                          <div className="group-hover:text-primary mb-2 text-[13px] font-bold text-gray-900 transition-colors md:text-sm">
                             {tServices("finance.title")}
                           </div>
-                          <div className="text-muted-foreground text-xs transition-colors group-hover:text-gray-600">
+                          <div className="text-xs font-normal text-gray-500 transition-colors group-hover:text-gray-700">
                             {tServices("finance.description")}
                           </div>
                         </button>
@@ -199,10 +199,10 @@ export function Header() {
                           }
                           className="hover:bg-primary/10 group block w-full cursor-pointer rounded-lg p-4 text-left transition-all duration-200 hover:pl-6"
                         >
-                          <div className="group-hover:text-primary mb-1 text-sm font-bold text-gray-900 transition-colors">
+                          <div className="group-hover:text-primary mb-2 text-[13px] font-bold text-gray-900 transition-colors md:text-sm">
                             {tServices("recruitment.title")}
                           </div>
-                          <div className="text-muted-foreground text-xs transition-colors group-hover:text-gray-600">
+                          <div className="text-xs font-normal text-gray-500 transition-colors group-hover:text-gray-700">
                             {tServices("recruitment.description")}
                           </div>
                         </button>
@@ -282,12 +282,12 @@ export function Header() {
                           setMobileMenuOpen(false)
                           sessionStorage.removeItem("mobileMenuOpen")
                         }}
-                        className="hover:bg-primary/10 hover:text-primary block w-full cursor-pointer rounded-md px-4 py-2.5 text-left text-sm font-medium text-gray-600 transition-all duration-200 hover:pl-6"
+                        className="hover:bg-primary/10 hover:text-primary block w-full cursor-pointer rounded-md px-4 py-2.5 text-left transition-all duration-200 hover:pl-6"
                       >
-                        <div className="font-semibold text-gray-700">
+                        <div className="mb-1.5 text-xs font-bold text-gray-700">
                           {tServices("hr.title")}
                         </div>
-                        <div className="text-xs text-gray-500">
+                        <div className="text-[11px] font-normal text-gray-500">
                           {tServices("hr.description")}
                         </div>
                       </button>
@@ -297,12 +297,12 @@ export function Header() {
                           setMobileMenuOpen(false)
                           sessionStorage.removeItem("mobileMenuOpen")
                         }}
-                        className="hover:bg-primary/10 hover:text-primary block w-full cursor-pointer rounded-md px-4 py-2.5 text-left text-sm font-medium text-gray-600 transition-all duration-200 hover:pl-6"
+                        className="hover:bg-primary/10 hover:text-primary block w-full cursor-pointer rounded-md px-4 py-2.5 text-left transition-all duration-200 hover:pl-6"
                       >
-                        <div className="font-semibold text-gray-700">
+                        <div className="mb-1.5 text-xs font-bold text-gray-700">
                           {tServices("finance.title")}
                         </div>
-                        <div className="text-xs text-gray-500">
+                        <div className="text-[11px] font-normal text-gray-500">
                           {tServices("finance.description")}
                         </div>
                       </button>
@@ -312,12 +312,12 @@ export function Header() {
                           setMobileMenuOpen(false)
                           sessionStorage.removeItem("mobileMenuOpen")
                         }}
-                        className="hover:bg-primary/10 hover:text-primary block w-full cursor-pointer rounded-md px-4 py-2.5 text-left text-sm font-medium text-gray-600 transition-all duration-200 hover:pl-6"
+                        className="hover:bg-primary/10 hover:text-primary block w-full cursor-pointer rounded-md px-4 py-2.5 text-left transition-all duration-200 hover:pl-6"
                       >
-                        <div className="font-semibold text-gray-700">
+                        <div className="mb-1.5 text-xs font-bold text-gray-700">
                           {tServices("recruitment.title")}
                         </div>
-                        <div className="text-xs text-gray-500">
+                        <div className="text-[11px] font-normal text-gray-500">
                           {tServices("recruitment.description")}
                         </div>
                       </button>
