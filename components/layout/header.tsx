@@ -93,9 +93,23 @@ export function Header() {
     <header className="sticky top-0 z-50 w-full border-b border-gray-200 bg-white/80 backdrop-blur-md">
       <Container>
         <div className="relative flex h-20 items-center justify-between">
-          {/* Left: Desktop Navigation */}
-          <div className="hidden items-center gap-8 md:flex">
-            <nav className="flex gap-8">
+          {/* Left: Hamburger (mobile) + Desktop Navigation */}
+          <div className="flex items-center gap-8">
+            {/* Hamburger — mobile only */}
+            <button
+              onClick={handleMobileMenuToggle}
+              className="text-foreground/60 hover:text-primary cursor-pointer md:hidden"
+              aria-label={mobileMenuOpen ? t("closeMenu") : t("openMenu")}
+            >
+              {mobileMenuOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
+            </button>
+
+            {/* Desktop Nav */}
+            <nav className="hidden gap-8 md:flex">
               <button
                 onClick={() => handleNavClick("about")}
                 className="hover:text-primary cursor-pointer text-sm font-bold text-gray-500 transition-colors"
@@ -186,22 +200,9 @@ export function Header() {
           </button>
 
           {/* Right: Language Switcher */}
-          <div className="hidden md:flex">
+          <div className="flex items-center">
             <LanguageSwitcher />
           </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            onClick={handleMobileMenuToggle}
-            className="text-foreground/60 hover:text-primary cursor-pointer md:hidden"
-            aria-label={mobileMenuOpen ? t("closeMenu") : t("openMenu")}
-          >
-            {mobileMenuOpen ? (
-              <X className="h-6 w-6" />
-            ) : (
-              <Menu className="h-6 w-6" />
-            )}
-          </button>
         </div>
 
         {/* Mobile Navigation */}
@@ -286,9 +287,6 @@ export function Header() {
               >
                 {t("contact")}
               </button>
-              <div className="mt-2 border-t border-gray-200 pt-4">
-                <LanguageSwitcher />
-              </div>
             </div>
           </nav>
         )}

@@ -358,9 +358,8 @@ export function Footer() {
 
             <div className="space-y-4">
               <Separator className="bg-white/10" />
-
-              <div className="flex items-center justify-center py-1">
-                <p className="text-xs text-gray-500">
+              <div className="flex items-center justify-center py-4">
+                <p className="text-center text-xs text-gray-500">
                   © {currentYear} {siteConfig.name}. All rights reserved.
                 </p>
               </div>

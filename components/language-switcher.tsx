@@ -3,7 +3,7 @@
 import { useState, useTransition, useRef, useEffect } from "react"
 import { useLocale } from "next-intl"
 import { usePathname, useRouter } from "@/lib/navigation"
-import { locales, type Locale, localeNames, localeFlags } from "@/i18n/config"
+import { locales, type Locale, localeFlags } from "@/i18n/config"
 import { cn } from "@/lib/utils"
 import { ChevronDown } from "lucide-react"
 
@@ -47,20 +47,15 @@ export function LanguageSwitcher() {
         onClick={() => setIsOpen(!isOpen)}
         disabled={isPending}
         className={cn(
-          "border-border focus:ring-primary/20 flex items-center gap-2 rounded-full border bg-white px-3 py-1.5 text-sm font-medium shadow-sm transition-all hover:bg-gray-50 focus:ring-2 focus:outline-none",
+          "border-border focus:ring-primary/20 flex items-center gap-1.5 rounded-full border bg-white px-2.5 py-1.5 text-sm font-medium shadow-sm transition-all hover:bg-gray-50 focus:ring-2 focus:outline-none",
           isPending && "cursor-wait opacity-50"
         )}
         aria-expanded={isOpen}
         aria-haspopup="true"
       >
-        <div className="flex items-center gap-2">
-          <span className="text-lg leading-none" aria-hidden="true">
-            {localeFlags[locale]}
-          </span>
-          <span className="tracking-tight text-gray-700 uppercase">
-            {localeNames[locale]}
-          </span>
-        </div>
+        <span className="text-lg leading-none" aria-hidden="true">
+          {localeFlags[locale]}
+        </span>
         <ChevronDown
           className={cn(
             "h-4 w-4 text-gray-400 transition-transform duration-200",
@@ -71,27 +66,34 @@ export function LanguageSwitcher() {
 
       {/* Dropdown Menu */}
       {isOpen && (
-        <div className="border-border animate-in fade-in zoom-in absolute right-0 z-50 mt-2 w-32 origin-top-right overflow-hidden rounded-xl border bg-white shadow-xl ring-1 ring-black/5 duration-200 focus:outline-none">
-          <div className="py-1" role="menu" aria-orientation="vertical">
+        <div className="animate-in fade-in slide-in-from-top-1 absolute right-0 z-50 mt-2 min-w-full origin-top-right duration-150">
+          <div
+            className="flex flex-col gap-1 rounded-2xl border border-gray-100 bg-white p-1.5 shadow-2xl ring-1 ring-black/5"
+            role="menu"
+            aria-orientation="vertical"
+          >
             {locales.map((loc) => (
               <button
                 key={loc}
                 onClick={() => handleLocaleChange(loc)}
                 className={cn(
-                  "flex w-full items-center gap-3 px-4 py-2.5 text-left text-sm transition-colors hover:bg-gray-50",
+                  "flex h-9 w-full items-center justify-center rounded-xl transition-all duration-150",
                   locale === loc
-                    ? "bg-primary/5 text-primary font-semibold"
-                    : "text-gray-700 hover:text-gray-900"
+                    ? "cursor-default opacity-40"
+                    : "hover:bg-gray-100"
                 )}
                 role="menuitem"
+                aria-label={loc}
               >
-                <span className="text-lg leading-none" aria-hidden="true">
+                <span
+                  className={cn(
+                    "leading-none transition-transform duration-150",
+                    locale === loc ? "text-2xl" : "text-xl"
+                  )}
+                  aria-hidden="true"
+                >
                   {localeFlags[loc]}
                 </span>
-                <span className="uppercase">{localeNames[loc]}</span>
-                {locale === loc && (
-                  <div className="bg-primary ml-auto h-1.5 w-1.5 rounded-full" />
-                )}
               </button>
             ))}
           </div>

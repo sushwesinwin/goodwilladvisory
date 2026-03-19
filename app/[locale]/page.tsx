@@ -47,16 +47,12 @@ export default function HomePage() {
                 transition={{ duration: 0.8 }}
                 className="flex min-h-[240px] flex-col justify-between text-center md:min-h-[280px] md:text-left lg:h-[320px]"
               >
-                <div className="space-y-3 md:space-y-4">
+                <div className="space-y-4 md:space-y-6">
                   <div className="space-y-2 md:space-y-3">
-                    <h1
-                      className={cn(
-                        "font-light tracking-tight text-balance",
-                        locale === "mm"
-                          ? "text-2xl sm:text-3xl md:text-4xl lg:text-5xl"
-                          : "text-3xl sm:text-4xl md:text-5xl lg:text-6xl"
-                      )}
-                    >
+                    <p className="text-primary text-[10px] font-bold tracking-[0.2em] uppercase md:text-sm">
+                      {tHero("tagline")}
+                    </p>
+                    <h1 className="text-3xl font-light tracking-tight text-balance sm:text-4xl md:text-5xl lg:text-6xl">
                       {tHero("title")}{" "}
                       <span className="text-primary font-light">
                         {tHero("titleHighlight")}
@@ -597,7 +593,7 @@ export default function HomePage() {
         </section>
 
         {/* Client Carousel Section */}
-        <section id="clients-section" className="bg-white">
+        <section id="clients-section" className="bg-white py-16 md:py-20">
           <Container>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
