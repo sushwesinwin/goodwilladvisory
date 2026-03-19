@@ -6,7 +6,7 @@ export const siteConfig = {
   ogImage: "/hero.png",
   links: {
     facebook: "https://www.facebook.com/share/1BvNtLTiEu/",
-    linkedin: "https://www.linkedin.com/company/goodwill-advisory-group/",
+    linkedin: "https://www.linkedin.com/company/goodwill-advisory-group/about/",
     tiktok: "https://tiktok.com/@linkus.recruitment",
   },
   creator: {
