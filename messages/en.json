@@ -7,7 +7,9 @@
   "nav": {
     "services": "Services",
     "about": "About",
-    "contact": "Contact"
+    "contact": "Contact",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
   },
   "hero": {
     "tagline": "Your Trusted Advisory Partner",
@@ -48,6 +50,7 @@
   "about": {
     "title": "About Us",
     "intro": "We provide strategic HR, financial consulting, and recruitment services to help small and medium-sized enterprises (SMEs) grow and succeed.",
+    "getConsultation": "Get Consultation",
     "slogan": {
       "line1": "Goodwill for",
       "line2": "Good Value"
