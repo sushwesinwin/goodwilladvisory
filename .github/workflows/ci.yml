@@ -31,7 +31,7 @@ jobs:
         run: npm run format:check
 
       - name: TypeScript type check
-        run: npx tsc --noEmit
+        run: npm run type-check
 
   build:
     name: Build Application

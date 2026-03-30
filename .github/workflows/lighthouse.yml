@@ -24,6 +24,8 @@ jobs:
 
       - name: Build application
         run: npm run build
+        env:
+          NEXT_PUBLIC_APP_URL: http://localhost:3000
 
       - name: Run Lighthouse CI
         uses: treosh/lighthouse-ci-action@v11
@@ -31,3 +33,12 @@ jobs:
           urls: |
             http://localhost:3000
           uploadArtifacts: true
+          temporaryPublicStorage: true
+          # Start the server and wait for it to be ready
+          startCommand: npm run start
+          # Wait up to 60s for the server
+          serverReadyTimeout: 60
+          # Command to start the server (same as startCommand, but explicitly for the action)
+          command: |
+            npm run start &
+            npx wait-on http://localhost:3000
